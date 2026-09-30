@@ -1,0 +1,958 @@
+[
+ {
+  "id": "S1",
+  "type": "shallow",
+  "query": "Which Flux object installs Arize Phoenix, and which chart version does it use?",
+  "expect": [
+   "phoenix/phoenix#HelmRelease",
+   "flux-system/phoenix#OCIRepository"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 7.3,
+  "answer": "From the vector store, the Flux object that installs Arize Phoenix is a HelmRelease with the key \"phoenix/phoenix\" in the namespace \"phoenix\". It uses a chart referenced by an OCIRepository named \"phoenix\" in the \"flux-system\" namespace. The OCIRepository for this chart points to the URL \"oci://registry-1.docker.io/arizephoenix/phoenix-helm\" and uses the chart version tag \"12.0.10\". \n\nThis information comes from the vector store. There is no additional relationship or metadata in the graph database about this HelmRelease.",
+  "calls": [
+   {
+    "name": "get-schema",
+    "args": null
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Flux object that installs Arize Phoenix and its chart version"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (h:HelmRelease) WHERE h.key='phoenix/phoenix' RETURN h.key, h.spec AS spec"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 2,
+  "retrieved": [
+   "flux-system/phoenix#OCIRepository",
+   "phoenix/phoenix#HelmRelease",
+   "flux-system/agentgateway#OCIRepository",
+   "flux-system/neo4j#HelmRepository",
+   "kagent/kagent#HelmRelease"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 4151,
+  "output_tokens": 124
+ },
+ {
+  "id": "S2",
+  "type": "shallow",
+  "query": "Which MCP server embeds text with all-MiniLM-L6-v2, and into which collection?",
+  "expect": [
+   "kagent/qdrant-mcp-official#MCPServer"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.6,
+  "answer": "The MCP server \"kagent/qdrant-mcp-official\" uses the embedding model \"all-MiniLM-L6-v2\" and embeds into the collection named \"abox-minilm\". This information comes from the vector store.",
+  "calls": [
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (m:MCPServer) WHERE m.embeddingModel = 'all-MiniLM-L6-v2' RETURN m.key AS key, m.vectorCollection AS collection"
+    }
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "MCP server embedding with model all-MiniLM-L6-v2"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "kagent/qdrant-mcp-official#MCPServer",
+   "kagent/retrieval-agent#Agent",
+   "llm-d/llm-d-embedding#HelmRelease",
+   "llama-cpp/llama-cpp-embeddings#Service",
+   "kagent/qdrant-mcp#MCPServer"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 5327,
+  "output_tokens": 48
+ },
+ {
+  "id": "S3",
+  "type": "shallow",
+  "query": "What URI and credentials does the Neo4j MCP server use to connect to the database?",
+  "expect": [
+   "kagent/neo4j-mcp#MCPServer"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 5.2,
+  "answer": "The Neo4j MCP server uses the following URI and credentials to connect to the database:\n\n- URI: bolt://neo4j.neo4j:7687\n- Username: neo4j\n- Password: abox-neo4j\n\nThis information is specified in the environment variables of the MCPServer configuration named \"neo4j-mcp\" in the \"kagent\" namespace. (Source: vector store, key: \"kagent/neo4j-mcp\")",
+  "calls": [
+   {
+    "name": "get-schema",
+    "args": null
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "The URI and credentials configuration for the Neo4j MCP server to connect to the database"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "kagent/neo4j-mcp#MCPServer",
+   "neo4j/neo4j#HelmRelease",
+   "flux-system/neo4j#HelmRepository",
+   "cluster/neo4j#Namespace",
+   "kagent/retrieval-agent#Agent"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3849,
+  "output_tokens": 98
+ },
+ {
+  "id": "S4",
+  "type": "shallow",
+  "query": "Which Helm repository does the vector database chart come from?",
+  "expect": [
+   "flux-system/qdrant#HelmRepository",
+   "qdrant/qdrant#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 8.0,
+  "answer": "The vector database chart \"qdrant\" comes from the Helm repository named \"qdrant\" with the URL: https://qdrant.github.io/qdrant-helm. (Source: vector store key \"flux-system/qdrant\")",
+  "calls": [
+   {
+    "name": "get-schema",
+    "args": null
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Which Helm repository provides the vector database chart?"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "flux-system/neo4j#HelmRepository",
+   "flux-system/llm-d-modelservice#HelmRepository",
+   "qdrant/qdrant#HelmRelease",
+   "flux-system/qdrant#HelmRepository",
+   "neo4j/neo4j#HelmRelease"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3557,
+  "output_tokens": 51
+ },
+ {
+  "id": "S5",
+  "type": "shallow",
+  "query": "Where is the Gateway that routes attach to, and which namespaces are allowed to attach routes?",
+  "expect": [
+   "agentgateway-system/agentgateway-external#Gateway"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.7,
+  "answer": "From the vector store, I found the following relevant information:\n\n- The Gateway named \"agentgateway-external\" is in the `agentgateway-system` namespace. It has a listener for HTTP on port 80, and it allows routes from all namespaces to attach to it. (metadata key: \"agentgateway-system/agentgateway-external\")\n\nSpecifically, the Gateway snippet includes:\n```\napiVersion: gateway.networking.k8s.io/v1\nkind: Gateway\nmetadata:\n  name: agentgateway-external\n  namespace: agentgateway-system\nspec:\n  gatewayClassName: agentgateway\n  listeners:\n  - name: http\n    port: 80\n    protocol: HTTP\n    allowedRoutes:\n      namespaces:\n        from: All\n```\n\nSo, the Gateway that routes attach to is \"agentgateway-external\" in namespace \"agentgateway-system\". The namespaces allowed to attach routes are all namespaces (from: All).\n\nThis information came from the vector store. Let me know if you want me to find which routes attach to it or any other details.",
+  "calls": [
+   {
+    "name": "get-schema",
+    "args": null
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Gateway routing attached routes namespaces allowed"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "agentgateway-system/agentgateway-external#Gateway",
+   "kagent/kagent#HTTPRoute",
+   "agentgateway-system/agentgateway#HelmRelease",
+   "flux-system/agentgateway-crds#OCIRepository",
+   "llama-cpp/llama-cpp-embeddings#HTTPRoute"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3318,
+  "output_tokens": 221
+ },
+ {
+  "id": "P1",
+  "type": "para",
+  "query": "What gives the tracing UI enough time to finish its database migrations on first boot?",
+  "expect": [
+   "phoenix/phoenix#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.5,
+  "answer": "The tracing UI (in the context of the \"phoenix\" HelmRelease in the phoenix namespace) is given enough time to finish its database migrations on first boot by configuring the startup probe with a wide budget of 10 minutes. This is because Phoenix runs Alembic migrations against Postgres on first boot, which can take longer than the default startup probe budget on KinD clusters, causing the container to restart repeatedly if the budget is too narrow.\n\nSpecifically, the startup probe is enabled with:\n- initialDelaySeconds: 5\n- periodSeconds: 5\n- failureThreshold: 120\n\nThis setting allows for approximately 10 minutes before the probe fails the container startup. The liveness and readiness probes only start counting once the startup probe succeeds.\n\nThis information is from the HelmRelease manifest with key \"phoenix/phoenix\" found in the vector store.",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "tracing UI database migrations first boot enough time"
+    }
+   },
+   {
+    "name": "get-schema",
+    "args": null
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "phoenix/phoenix#HelmRelease",
+   "flux-system/inference-extension-crds#Kustomization",
+   "flux-system/gateway-api-crds#Kustomization",
+   "flux-system/inferencepool#OCIRepository",
+   "flux-system/neo4j#HelmRepository"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3256,
+  "output_tokens": 177
+ },
+ {
+  "id": "P2",
+  "type": "para",
+  "query": "Which service turns text into 768-dimension vectors for the default vector tools, and on which port?",
+  "expect": [
+   "kagent/qdrant-mcp#MCPServer",
+   "llama-cpp/llama-cpp-embeddings#Deployment",
+   "llama-cpp/llama-cpp-embeddings#Service"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.3,
+  "answer": "The service that turns text into 768-dimension vectors for the default vector tools appears to be \"llama-cpp-embeddings\" in the \"llama-cpp\" namespace. It is a Kubernetes Service with the HTTP port set to 8090. This information comes from the vector store.\n\nAlso found services related to \"llm-d-embedding\" in the \"llm-d\" namespace on port 8000, which might be relevant.\n\nNo specific schema labels were found in the graph store.\n\nSo, the main service likely responsible is: \n- Service name: llama-cpp-embeddings\n- Namespace: llama-cpp\n- Port: 8090\n\nAnd a possible related service:\n- Service name: llm-d-embedding\n- Namespace: llm-d\n- Port: 8000",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "the service and port that converts text into 768-dimension vectors for the default vector tools"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (n) RETURN DISTINCT labels(n) AS labels LIMIT 5"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "flux-system/neo4j#HelmRepository",
+   "flux-system/llm-d-modelservice#HelmRepository",
+   "llama-cpp/llama-cpp-embeddings#Service",
+   "llm-d/llm-d-embedding#Service",
+   "flux-system/qdrant#HelmRepository"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3008,
+  "output_tokens": 168
+ },
+ {
+  "id": "P3",
+  "type": "para",
+  "query": "Which component keeps an inventory of agents, and is authentication enabled on it?",
+  "expect": [
+   "agentregistry/agentregistry-inventory#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 2.7,
+  "answer": "The component that keeps an inventory of agents is the HelmRelease named \"agentregistry-inventory\" in the \"agentregistry\" namespace. According to the retrieved manifest snippet, authentication on this component is disabled as indicated by the field \"disableAuth: true\" in its values.\n\nThis information is from the vector store, metadata key \"agentregistry/agentregistry-inventory\". The graph store was empty and did not provide additional relevant schema or relationship data.",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "component that keeps an inventory of agents"
+    }
+   },
+   {
+    "name": "get-schema",
+    "args": null
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "agentregistry/agentregistry-inventory#HelmRelease",
+   "flux-system/agentregistry#OCIRepository",
+   "kagent/retrieval-agent#Agent",
+   "cluster/agentregistry#Namespace",
+   "flux-system/agentgateway#OCIRepository"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 4669,
+  "output_tokens": 91
+ },
+ {
+  "id": "P4",
+  "type": "para",
+  "query": "What rewrites a version label on the agent framework's objects after rendering, and why is it needed?",
+  "expect": [
+   "kagent/kagent#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 7.6,
+  "answer": "I searched both the vector store and the graph database but found no explicit statement about what rewrites a version label on the agent framework's objects after rendering, or why it is needed. The vector store had related documents about HelmRelease, OCIRepository, and the Agent's general configuration, but none directly answered the question. The graph has no nodes labeled as Agent or related objects with such details.\n\nTherefore, the specific information about what rewrites the version label on the agent framework's objects after rendering and why this process is needed is not present in the available data stores.",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "What rewrites a version label on the agent framework's objects after rendering, and why is it needed?"
+    }
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "What rewrites a version label on the agent framework's objects after rendering?"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (agent:Agent {key:\"kagent/retrieval-agent\"})-[:USES_TOOL]->(tool) RETURN tool.kind AS kind, tool.key AS key"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (n:Agent) WHERE n.key CONTAINS \"agent\" RETURN n.key, n.name LIMIT 5"
+    }
+   }
+  ],
+  "find_calls": 2,
+  "graph_calls": 2,
+  "retrieved": [
+   "agentregistry/agentregistry-inventory#HelmRelease",
+   "llm-d/llm-d-embedding#Service",
+   "kagent/retrieval-agent#Agent",
+   "flux-system/agentregistry#OCIRepository",
+   "cluster/agentregistry#Namespace"
+  ],
+  "retrieved_expected": false,
+  "facts_ok": false,
+  "prompt_tokens": 7526,
+  "output_tokens": 115
+ },
+ {
+  "id": "P5",
+  "type": "para",
+  "query": "How does the retrieval agent answer a question about how objects relate to each other?",
+  "expect": [
+   "kagent/retrieval-agent#Agent"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 2.7,
+  "answer": "The retrieval agent answers a question about how objects relate to each other by using the graph store and querying it with read-cypher. This store contains entities and their relationships modeled as nodes and edges respectively. The agent runs read-only Cypher queries to explore these relationships across objects, such as dependencies, usage, routing, and attachments.\n\nIf the question involves relationships across objects, the agent uses read-cypher because vector search cannot answer relationship questions. If relevant graph data is missing or does not exist, the agent then searches the vector store for information before concluding that the data is not available. This ensures comprehensive retrieval from both relationship (graph) and descriptive (vector) sources before answering.",
+  "calls": [],
+  "find_calls": 0,
+  "graph_calls": 0,
+  "retrieved": [],
+  "retrieved_expected": false,
+  "facts_ok": true,
+  "prompt_tokens": 1892,
+  "output_tokens": 139
+ },
+ {
+  "id": "P6",
+  "type": "para",
+  "query": "What does the GPU-free inference stack use to decide which model server gets an embedding request?",
+  "expect": [
+   "llm-d/llm-d-pool#HelmRelease",
+   "llm-d/nomic-embed-text#InferenceObjective",
+   "llm-d/llm-d-embedding#HTTPRoute"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.6,
+  "answer": "The GPU-free inference stack uses an InferencePool together with an Endpoint Picker (EPP) to decide which model server gets an embedding request. The Endpoint Picker watches the pool's available endpoints (model server pods) and routes embedding requests accordingly. The inference pool is defined per base model, and the model servers are selected by their labels matching the specific model. This prevents the Endpoint Picker from sending embedding requests meant for one model to a server serving a different model.\n\nThis information is drawn from the vector store entries with metadata keys \"flux-system/inferencepool\" and \"llm-d/llm-d-pool\".",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "How does the GPU-free inference stack decide which model server gets an embedding request?"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 0,
+  "retrieved": [
+   "flux-system/inferencepool#OCIRepository",
+   "llm-d/llm-d-pool#HelmRelease",
+   "llm-d/nomic-embed-text#InferenceObjective",
+   "llm-d/llm-d-embedding#Service",
+   "cluster/llm-d#Namespace"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3925,
+  "output_tokens": 125
+ },
+ {
+  "id": "W1",
+  "type": "why",
+  "query": "Why is the agentgateway chart pulled from cr.agentgateway.dev rather than from kgateway-dev?",
+  "expect": [
+   "flux-system/agentgateway#OCIRepository"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.9,
+  "answer": "The reason the agentgateway chart is pulled from cr.agentgateway.dev rather than from kgateway-dev is explained in the OCIRepository resources found in the vector store:\n\n- The repository named \"agentgateway\" in the \"flux-system\" namespace is configured with the URL \"oci://cr.agentgateway.dev/charts/agentgateway\" and is tagged at version \"1.5.0\". The comment in this resource states that this is \"the agentgateway project's own chart stream.\" \n- It additionally notes that kgateway-dev's version 2.2.x is only capped at Kubernetes 1.35 and Gateway API 1.4. Meanwhile, the cluster runs Kubernetes 1.37 and Gateway API 1.6.2, which requires the newer agentgateway chart from cr.agentgateway.dev for compatibility.\n- Similarly, the agentgateway-crds (custom resource definitions) are also pulled from cr.agentgateway.dev, with a note that kgateway-dev's CRDs are rejected by Kubernetes 1.37 due to exceeding the CEL cost budget.\n\nIn summary, the agentgateway chart is pulled from cr.agentgateway.dev because the kgateway-dev v2.2.x chart and CRDs do not support the newer Kubernetes 1.37 and Gateway API 1.6 running in the cluster. The cr.agentgateway.dev source is the updated project chart stream compatible with the cluster environment.\n\nThis information was retrieved from the vector store entries with keys:\n- flux-system/agentgateway\n- flux-system/agentgateway-crds",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "the source repository or registry for the agentgateway Helm chart"
+    }
+   },
+   {
+    "name": "get-schema",
+    "args": null
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "agentgateway-system/agentgateway-crds#HelmRelease",
+   "flux-system/agentgateway#OCIRepository",
+   "agentgateway-system/agentgateway#HelmRelease",
+   "flux-system/agentgateway-crds#OCIRepository",
+   "agentregistry/agentregistry-inventory#HelmRelease"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3216,
+  "output_tokens": 307
+ },
+ {
+  "id": "W2",
+  "type": "why",
+  "query": "Why does the cluster install the experimental Gateway API channel instead of the standard one?",
+  "expect": [
+   "flux-system/gateway-api#GitRepository"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.4,
+  "answer": "The cluster installs the experimental Gateway API channel instead of the standard one because:\n\n1. The experimental channel is required, not a preference. This is due to the agentgateway's informers being typed to v1alpha2 for both TLSRoute and TCPRoute and not negotiating a served version via discovery. The standard 1.4.0 version had no TLSRoute CRD at all. Although the 1.6.x standard does ship it, it serves v1 only, with v1alpha2 present but served:false, causing the API server to respond with 404 errors and the informer to hang. The experimental channel serves both v1alpha2 alongside v1.\n\n2. This is not a stability trade-off for the resources in use: the experimental channel is a superset of standard. Gateway, HTTPRoute, GRPCRoute, and ReferenceGrant are the same GA v1 types in both channels, but the experimental channel adds the alpha CRDs and some additional optional fields.\n\nIn summary, the experimental channel is used because it provides the necessary versions and CRDs that the agentgateway informers require to function properly.\n\nThis information is from vector store entry with metadata key \"flux-system/gateway-api\".",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "why does the cluster install the experimental Gateway API channel instead of the standard one"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 0,
+  "retrieved": [
+   "flux-system/gateway-api#GitRepository",
+   "flux-system/gateway-api-inference-extension#GitRepository",
+   "llm-d/llm-d-pool#HelmRelease",
+   "flux-system/gateway-api-crds#Kustomization",
+   "agentgateway-system/agentgateway-external#Gateway"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 4461,
+  "output_tokens": 244
+ },
+ {
+  "id": "W3",
+  "type": "why",
+  "query": "Why is the llm-d decode pod's PodMonitor turned off?",
+  "expect": [
+   "llm-d/llm-d-embedding#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 6.8,
+  "answer": "I found from the vector store that the PodMonitor for the llm-d decode pod under \"llm-d/llm-d-embedding\" HelmRelease is turned off because abox (the environment) does not have a Prometheus Operator. The spec shows under monitoring.prometheus.enabled: false, which causes enabling the PodMonitor to fail the release with the error \"no matches for kind PodMonitor in version monitoring.coreos.com/v1\".\n\nI searched the vector store for the HelmRelease \"llm-d/llm-d-embedding\" but the graph currently has no nodes for that HelmRelease or its relationships stored. So this explanation comes from the vector store manifest content, not the graph store. \n\nIn summary: The PodMonitor is disabled deliberately since the Prometheus Operator is absent in the cluster environment this runs on. (metadata key: \"llm-d/llm-d-embedding\")",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Which PodMonitor is responsible for the llm-d decode pod and why is it turned off?"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (hr:HelmRelease {key: \"llm-d/llm-d-embedding\"})-[:DEPENDS_ON]->(dep) RETURN dep, hr"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (hr:HelmRelease {key: \"llm-d/llm-d-embedding\"}) RETURN hr"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (hr:HelmRelease) WHERE hr.key STARTS WITH 'llm-d/' RETURN hr.key, hr.spec"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 3,
+  "retrieved": [
+   "llm-d/llm-d-pool#HelmRelease",
+   "llm-d/llm-d-embedding#Service",
+   "cluster/llm-d#Namespace",
+   "llm-d/llm-d-embedding#HelmRelease",
+   "flux-system/llm-d-modelservice#HelmRepository"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 5133,
+  "output_tokens": 182
+ },
+ {
+  "id": "D1",
+  "type": "deep",
+  "query": "How many parallel slots and how many tokens per slot does the standalone llama.cpp embeddings server run with?",
+  "expect": [
+   "llama-cpp/llama-cpp-embeddings#Deployment"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 2.4,
+  "answer": "The standalone llama.cpp embeddings server runs with 8 parallel slots (--parallel 8) and 2048 tokens per slot (--ubatch-size 2048). This is configured in the Deployment \"llama-cpp-embeddings\" in the \"llama-cpp\" namespace. (Source: vector store entry with key \"llama-cpp/llama-cpp-embeddings\")",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "The standalone llama.cpp embeddings server parallel slots and tokens per slot configuration"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 0,
+  "retrieved": [
+   "llama-cpp/llama-cpp-embeddings#Deployment",
+   "cluster/llama-cpp#Namespace",
+   "llama-cpp/llama-cpp-embeddings#Service",
+   "llama-cpp/llama-cpp-embeddings#HTTPRoute",
+   "kagent/qdrant-mcp#MCPServer"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 4740,
+  "output_tokens": 80
+ },
+ {
+  "id": "D2",
+  "type": "deep",
+  "query": "Which chat model do the agents run on, and which Secret is its API key read from?",
+  "expect": [
+   "kagent/kagent#HelmRelease",
+   "kagent/retrieval-agent#Agent"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 9.9,
+  "answer": "I searched both the vector store and the graph for the chat model used by the agents and the Secret from which its API key is read. The vector store has data regarding the \"retrieval-agent\" where it mentions the agent uses a modelConfig called \"default-model-config\" that references OpenAI gpt-4.1-mini. However, there is no explicit information about which Secret contains the API key in the vector store or the graph.\n\nThe graph database is empty, as no nodes or relationships have been stored there yet.\n\nSummary:\n- Agents run on a model specified by the modelConfig, with the retrieval-agent using an OpenAI gpt-4.1-mini model (from vector store, key: \"kagent/retrieval-agent\").\n- No information found on which Secret holds the API key for the chat model in either store.\n\nIf you want, I can try to find the manifest containing the Secret or ModelConfig details for more information. Would you like to do that?",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "chat model used by agent"
+    }
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "API key secret for the chat model used by agents"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (a:Agent) WHERE a.key = 'kagent/retrieval-agent' RETURN a.spec.declarative.modelConfig AS modelConfig"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (a:Agent) WHERE a.key = 'kagent/k8s-agent' RETURN a.spec.declarative.modelConfig AS modelConfig"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (m:ModelConfig {key: 'kagent/default-model-config'}) RETURN m.spec.api AS api, m.spec.secretRef AS secretRef"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (m:ModelConfig) RETURN m.key, m.spec.api, m.spec.secretRef LIMIT 5"
+    }
+   },
+   {
+    "name": "get-schema",
+    "args": null
+   }
+  ],
+  "find_calls": 2,
+  "graph_calls": 5,
+  "retrieved": [
+   "kagent/retrieval-agent#Agent",
+   "llm-d/llm-d-embedding#Service",
+   "cluster/agentregistry#Namespace",
+   "flux-system/agentregistry#OCIRepository"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": false,
+  "prompt_tokens": 8059,
+  "output_tokens": 200
+ },
+ {
+  "id": "D3",
+  "type": "deep",
+  "query": "Which manifest disables the istio and cilium agents that kagent would otherwise deploy?",
+  "expect": [
+   "kagent/kagent#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 4.0,
+  "answer": "The manifest that disables the Istio and Cilium agents that kagent would otherwise deploy is the HelmRelease named \"kagent\" in the \"kagent\" namespace. This manifest sets the following values under `spec.values`:\n\n- istio-agent:\n    enabled: false\n\n- cilium-policy-agent:\n    enabled: false\n\n- cilium-manager-agent:\n    enabled: false\n\n- cilium-debug-agent:\n    enabled: false\n\nThis HelmRelease manifest is found in the file releases/kagent.yaml.\n\nThis information was retrieved from the vector store entries with metadata key \"kagent/kagent\" and kind \"HelmRelease\".",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "manifest that disables the istio agent deployment by kagent"
+    }
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "manifest that disables the cilium agent deployment by kagent"
+    }
+   }
+  ],
+  "find_calls": 2,
+  "graph_calls": 0,
+  "retrieved": [
+   "kagent/kagent#HelmRelease",
+   "kagent/retrieval-agent#Agent",
+   "flux-system/kagent#OCIRepository",
+   "kagent/kagent-crds#HelmRelease",
+   "agentregistry/agentregistry-inventory#HelmRelease",
+   "flux-system/agentgateway-crds#OCIRepository"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 9565,
+  "output_tokens": 129
+ },
+ {
+  "id": "D4",
+  "type": "deep",
+  "query": "Why does llm-d serve the embedding model with llama.cpp instead of vLLM?",
+  "expect": [
+   "llm-d/llm-d-embedding#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.6,
+  "answer": "The reason llm-d serves the embedding model with llama.cpp instead of vLLM is that vLLM's CPU backend cannot serve this model on the given cluster: the worker process is killed by a signal on the first forward pass at both float16 and bfloat16 precisions, even with the memory limit raised to 9Gi, so it is not an out-of-memory issue. In contrast, llama.cpp can serve the same model from the same weights using a fraction of the memory, making it a more suitable choice in this environment.\n\nThis information comes from the vector store entry with metadata key \"llm-d/llm-d-embedding\" which describes the HelmRelease deployment of llm-d embedding with the use of llama.cpp as the serving backend.\n\nLet me know if you want more details from the manifests or about other related objects.",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Embedding model served by llm-d with llama.cpp instead of vLLM"
+    }
+   },
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (n) WHERE n.key CONTAINS 'llm-d' RETURN DISTINCT labels(n) AS labels LIMIT 5"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "cluster/llama-cpp#Namespace",
+   "llama-cpp/llama-cpp-embeddings#Deployment",
+   "llama-cpp/llama-cpp-embeddings#Service",
+   "cluster/llm-d#Namespace",
+   "llm-d/llm-d-embedding#HelmRelease"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 5558,
+  "output_tokens": 172
+ },
+ {
+  "id": "D5",
+  "type": "deep",
+  "query": "Which Neo4j settings make apoc.meta.schema available to the MCP server's get-schema tool?",
+  "expect": [
+   "neo4j/neo4j#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 2.7,
+  "answer": "The Neo4j settings that make apoc.meta.schema available to the MCP server's get-schema tool include:\n\n- Setting the environment variable NEO4J_PLUGINS to '[\"apoc\"]' to load the APOC core inside the Neo4j container.\n- Configuring Neo4j with:\n  - dbms.security.procedures.unrestricted: \"apoc.*\"\n  - dbms.security.procedures.allowlist: \"apoc.*\"\n\nThese settings allow the apoc.meta.schema procedure to read internal store APIs and register properly without errors.\n\nThis information comes from the vector store entry with metadata key: \"neo4j/neo4j\" (HelmRelease in neo4j namespace).",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Neo4j settings that make apoc.meta.schema available to MCP server's get-schema tool"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 0,
+  "retrieved": [
+   "neo4j/neo4j#HelmRelease",
+   "kagent/neo4j-mcp#MCPServer",
+   "flux-system/neo4j#HelmRepository",
+   "kagent/retrieval-agent#Agent",
+   "cluster/neo4j#Namespace"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3806,
+  "output_tokens": 146
+ },
+ {
+  "id": "D6",
+  "type": "deep",
+  "query": "Why is the Neo4j Browser LoadBalancer service disabled?",
+  "expect": [
+   "neo4j/neo4j#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.0,
+  "answer": "The Neo4j Browser LoadBalancer service is disabled because the Helm chart defaults the Neo4j Browser service to a LoadBalancer, but in the current environment (KinD), there is only one LoadBalancer address which is already held by agentgateway. Enabling the LoadBalancer for Neo4j would cause it to sit in Pending state forever. Instead, the chart uses the ClusterIP Service that in-cluster clients use. For access to the Neo4j Browser, port-forwarding is recommended with \"kubectl port-forward -n neo4j svc/neo4j 7474 7687\".\n\nThis information comes from a HelmRelease resource stored in the vector store with key \"neo4j/neo4j\".",
+  "calls": [
+   {
+    "name": "get-schema",
+    "args": null
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "why is the Neo4j Browser LoadBalancer service disabled"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "neo4j/neo4j#HelmRelease",
+   "flux-system/neo4j#HelmRepository",
+   "kagent/neo4j-mcp#MCPServer",
+   "cluster/neo4j#Namespace",
+   "kagent/retrieval-agent#Agent"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3838,
+  "output_tokens": 147
+ },
+ {
+  "id": "D7",
+  "type": "deep",
+  "query": "Why is the Gateway API inference extension pinned to v1.5.0 instead of the newest release?",
+  "expect": [
+   "flux-system/gateway-api-inference-extension#GitRepository"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 4.7,
+  "answer": "The Gateway API inference extension is pinned to version v1.5.0 instead of the newest release (v1.6.1) because the newer version drops some CRDs (inferenceobjectives and inferencemodelrewrites) from its config/crd/bases, and no inferencepool chart is published beyond v1.5.0. Version v1.5.0 is the newest version where the CRDs and chart still align properly.\n\nThis information comes from the vector store entry with metadata key: flux-system/gateway-api-inference-extension.",
+  "calls": [
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (n:GatewayAPIExtension) WHERE n.name = 'inference' RETURN n.version AS pinnedVersion, n.latestVersion AS newestRelease"
+    }
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Why is the Gateway API inference extension pinned to version v1.5.0 instead of the newest release?"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "flux-system/gateway-api-inference-extension#GitRepository",
+   "flux-system/inferencepool#OCIRepository",
+   "flux-system/gateway-api#GitRepository",
+   "flux-system/inference-extension-crds#Kustomization",
+   "agentgateway-system/agentgateway#HelmRelease"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 4201,
+  "output_tokens": 115
+ },
+ {
+  "id": "D8",
+  "type": "deep",
+  "query": "How does the InferencePool select which pods serve the embedding model, and why not a blanket label?",
+  "expect": [
+   "llm-d/llm-d-pool#HelmRelease"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.3,
+  "answer": "The InferencePool selects which pods serve the embedding model by using a label selector scoped to the specific model it handles, rather than a blanket label for all models. Specifically, it uses matchLabels under modelServers that target pods with the label llm-d.ai/model set to the specific model name, e.g., nomic-embed-text-v1-5. This is to prevent the problem where a blanket selector like llm-d.ai/inferenceServing: \"true\" would pull pods serving multiple models into the same pool. This would cause the Endpoint Picker (EPP) to route embedding requests to the wrong server when more than one model is involved.\n\nSo, the reason for not using a blanket label is that the pool is per base model; if a second model is added, a blanket selector would silently mix the pods for different models in one pool, causing incorrect routing.\n\nThis information is from the vector store entries with the keys: llm-d/llm-d-pool (HelmRelease) and llm-d/llm-d-embedding (Service).",
+  "calls": [
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "InferencePool selecting pods for embedding model"
+    }
+   },
+   {
+    "name": "get-schema",
+    "args": null
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "llm-d/llm-d-pool#HelmRelease",
+   "flux-system/inferencepool#OCIRepository",
+   "llm-d/llm-d-embedding#Service",
+   "llm-d/nomic-embed-text#InferenceObjective",
+   "llm-d/llm-d-embedding#HTTPRoute"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 4239,
+  "output_tokens": 217
+ },
+ {
+  "id": "D9",
+  "type": "deep",
+  "query": "What memory limit does the default qdrant-mcp server run with?",
+  "expect": [
+   "kagent/qdrant-mcp#MCPServer"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 3.2,
+  "answer": "The default qdrant-mcp server running in the \"kagent\" namespace with the name \"qdrant-mcp\" has the following memory limits set:\n- Memory request: 32Mi\n- Memory limit: 256Mi\n\nThis information comes from the vector store entry with metadata key \"kagent/qdrant-mcp\". \n\nPlease note that I initially searched by graph but found no matching MCPServer nodes in the \"default\" namespace. However, the vector store returned the above relevant information for the \"kagent\" namespace, which might be what you are referring to or similar.",
+  "calls": [
+   {
+    "name": "read-cypher",
+    "args": {
+     "query": "MATCH (n:MCPServer {name: 'qdrant-mcp', namespace: 'default'}) RETURN n.memoryLimit AS memoryLimit"
+    }
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "memory limit of the qdrant-mcp server in the default namespace"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "kagent/qdrant-mcp-official#MCPServer",
+   "kagent/qdrant-mcp#MCPServer",
+   "kagent/retrieval-agent#Agent",
+   "cluster/qdrant#Namespace",
+   "qdrant/qdrant#HelmRelease"
+  ],
+  "retrieved_expected": true,
+  "facts_ok": true,
+  "prompt_tokens": 3987,
+  "output_tokens": 122
+ },
+ {
+  "id": "D10",
+  "type": "deep",
+  "query": "What must the retrieval agent never do while answering a retrieval question?",
+  "expect": [
+   "kagent/retrieval-agent#Agent"
+  ],
+  "state": "completed",
+  "error": null,
+  "seconds": 0.7,
+  "answer": "The retrieval agent must never run write-cypher while answering a retrieval question. It should answer only from what it has retrieved and avoid any writing operations during retrieval.",
+  "calls": [],
+  "find_calls": 0,
+  "graph_calls": 0,
+  "retrieved": [],
+  "retrieved_expected": false,
+  "facts_ok": false,
+  "prompt_tokens": 1889,
+  "output_tokens": 34
+ },
+ {
+  "id": "N1",
+  "type": "none",
+  "query": "Which manifest deploys Prometheus in this cluster?",
+  "expect": [],
+  "state": "completed",
+  "error": null,
+  "seconds": 2.9,
+  "answer": "I searched both the vector store and the graph for the manifest that deploys Prometheus in this cluster.\n\nFrom the vector store, I found no manifest that explicitly deploys Prometheus. The hits mostly mention HelmReleases for other applications, HelmRepositories, and a Namespace, but none deploy Prometheus.\n\nThe graph is empty and provided no information.\n\nTherefore, based on the current data in the stores, there is no manifest recorded that deploys Prometheus in this cluster.",
+  "calls": [
+   {
+    "name": "get-schema",
+    "args": null
+   },
+   {
+    "name": "vector_find",
+    "args": {
+     "query": "Which manifest deploys Prometheus monitoring in the cluster?"
+    }
+   }
+  ],
+  "find_calls": 1,
+  "graph_calls": 1,
+  "retrieved": [
+   "phoenix/phoenix#HelmRelease",
+   "llm-d/llm-d-pool#HelmRelease",
+   "flux-system/llm-d-modelservice#HelmRepository",
+   "cluster/llm-d#Namespace",
+   "flux-system/neo4j#HelmRepository"
+  ],
+  "retrieved_expected": false,
+  "facts_ok": true,
+  "prompt_tokens": 3877,
+  "output_tokens": 96
+ }
+]

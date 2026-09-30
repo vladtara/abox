@@ -1,0 +1,162 @@
+# Retrieval questions over the releases/ corpus at v1.0.0 (build_corpus.py).
+#
+# type    shallow  the answer is in the first ~180 words of its manifest
+#         deep     the answer is past word ~180: beyond all-MiniLM-L6-v2's
+#                  256-token window, inside nomic-embed's 2048
+#         why      the answer is a rationale written in a comment
+#         para     paraphrased: the question avoids the object's name
+#         none     nothing in the corpus answers it; the right move is to say so
+#
+# expect  "<namespace>/<name>#<Kind>" ids that answer it; a hit on any counts
+# facts   what a correct agent answer must contain: every group must match,
+#         any alternative within a group will do (case-insensitive)
+questions:
+- id: S1
+  type: shallow
+  query: Which Flux object installs Arize Phoenix, and which chart version does it use?
+  expect: [phoenix/phoenix#HelmRelease, flux-system/phoenix#OCIRepository]
+  facts: [[HelmRelease], ["12.0.10"]]
+
+- id: S2
+  type: shallow
+  query: Which MCP server embeds text with all-MiniLM-L6-v2, and into which collection?
+  expect: [kagent/qdrant-mcp-official#MCPServer]
+  facts: [[qdrant-mcp-official], [abox-minilm]]
+
+- id: S3
+  type: shallow
+  query: What URI and credentials does the Neo4j MCP server use to connect to the database?
+  expect: [kagent/neo4j-mcp#MCPServer]
+  facts: [["bolt://neo4j.neo4j:7687"], [abox-neo4j]]
+
+- id: S4
+  type: shallow
+  query: Which Helm repository does the vector database chart come from?
+  expect: [flux-system/qdrant#HelmRepository, qdrant/qdrant#HelmRelease]
+  facts: [[qdrant.github.io/qdrant-helm]]
+
+- id: S5
+  type: shallow
+  query: Where is the Gateway that routes attach to, and which namespaces are allowed to attach routes?
+  expect: [agentgateway-system/agentgateway-external#Gateway]
+  facts: [[agentgateway-external], [All, "all namespaces", "any namespace"]]
+
+- id: P1
+  type: para
+  query: What gives the tracing UI enough time to finish its database migrations on first boot?
+  expect: [phoenix/phoenix#HelmRelease]
+  facts: [[startup], ["120", "10 minutes", "ten minutes", "600"]]
+
+- id: P2
+  type: para
+  query: Which service turns text into 768-dimension vectors for the default vector tools, and on which port?
+  expect: [kagent/qdrant-mcp#MCPServer, llama-cpp/llama-cpp-embeddings#Deployment, llama-cpp/llama-cpp-embeddings#Service]
+  facts: [[llama-cpp-embeddings, llama.cpp], ["8090"]]
+
+- id: P3
+  type: para
+  query: Which component keeps an inventory of agents, and is authentication enabled on it?
+  expect: [agentregistry/agentregistry-inventory#HelmRelease]
+  facts: [[agentregistry], [disableAuth, disabled, "not enabled", "turned off", "no auth", "off"]]
+
+- id: P4
+  type: para
+  query: What rewrites a version label on the agent framework's objects after rendering, and why is it needed?
+  expect: [kagent/kagent#HelmRelease]
+  facts: [[postRenderer, post-renderer, "post renderer"], ["+", build metadata, digest]]
+
+- id: P5
+  type: para
+  query: How does the retrieval agent answer a question about how objects relate to each other?
+  expect: [kagent/retrieval-agent#Agent]
+  facts: [[read-cypher, graph, cypher]]
+
+- id: P6
+  type: para
+  query: What does the GPU-free inference stack use to decide which model server gets an embedding request?
+  expect: [llm-d/llm-d-pool#HelmRelease, llm-d/nomic-embed-text#InferenceObjective, llm-d/llm-d-embedding#HTTPRoute]
+  facts: [[InferencePool, EPP, endpoint picker, llm-d-pool]]
+
+- id: W1
+  type: why
+  query: Why is the agentgateway chart pulled from cr.agentgateway.dev rather than from kgateway-dev?
+  expect: [flux-system/agentgateway#OCIRepository]
+  facts: [["1.35", "1.37", "1.4", "1.6.2"]]
+
+- id: W2
+  type: why
+  query: Why does the cluster install the experimental Gateway API channel instead of the standard one?
+  expect: [flux-system/gateway-api#GitRepository]
+  facts: [[v1alpha2], [TLSRoute, TCPRoute]]
+
+- id: W3
+  type: why
+  query: Why is the llm-d decode pod's PodMonitor turned off?
+  expect: [llm-d/llm-d-embedding#HelmRelease]
+  facts: [[Prometheus Operator, PodMonitor]]
+
+- id: D1
+  type: deep
+  query: How many parallel slots and how many tokens per slot does the standalone llama.cpp embeddings server run with?
+  expect: [llama-cpp/llama-cpp-embeddings#Deployment]
+  facts: [["8"], ["2048"]]
+
+- id: D2
+  type: deep
+  query: Which chat model do the agents run on, and which Secret is its API key read from?
+  expect: [kagent/kagent#HelmRelease, kagent/retrieval-agent#Agent]
+  facts: [[gpt-4.1-mini], [abox-openai]]
+
+- id: D3
+  type: deep
+  query: Which manifest disables the istio and cilium agents that kagent would otherwise deploy?
+  expect: [kagent/kagent#HelmRelease]
+  facts: [[kagent], [istio], [cilium]]
+
+- id: D4
+  type: deep
+  query: Why does llm-d serve the embedding model with llama.cpp instead of vLLM?
+  expect: [llm-d/llm-d-embedding#HelmRelease]
+  facts: [[vLLM], [killed, signal, forward pass, crash]]
+
+- id: D5
+  type: deep
+  query: Which Neo4j settings make apoc.meta.schema available to the MCP server's get-schema tool?
+  expect: [neo4j/neo4j#HelmRelease]
+  facts: [[NEO4J_PLUGINS, plugins], [unrestricted, allowlist]]
+
+- id: D6
+  type: deep
+  query: Why is the Neo4j Browser LoadBalancer service disabled?
+  expect: [neo4j/neo4j#HelmRelease]
+  facts: [[LoadBalancer, LB], [Pending, agentgateway, one address, "one LB"]]
+
+- id: D7
+  type: deep
+  query: Why is the Gateway API inference extension pinned to v1.5.0 instead of the newest release?
+  expect: [flux-system/gateway-api-inference-extension#GitRepository]
+  facts: [["1.6.1", newest, latest], [inferenceobjectives, chart, inferencemodelrewrites]]
+
+- id: D8
+  type: deep
+  query: How does the InferencePool select which pods serve the embedding model, and why not a blanket label?
+  expect: [llm-d/llm-d-pool#HelmRelease]
+  facts: [[nomic-embed-text-v1-5, llm-d.ai/model], [second model, another model, wrong server]]
+
+- id: D9
+  type: deep
+  query: What memory limit does the default qdrant-mcp server run with?
+  expect: [kagent/qdrant-mcp#MCPServer]
+  facts: [[256Mi]]
+
+- id: D10
+  type: deep
+  query: What must the retrieval agent never do while answering a retrieval question?
+  expect: [kagent/retrieval-agent#Agent]
+  facts: [[write-cypher, write], [delegate, fetch, re-ingest]]
+
+- id: N1
+  type: none
+  query: Which manifest deploys Prometheus in this cluster?
+  expect: []
+  facts: [["no Prometheus", "not deploy", "does not", "doesn't", "no manifest", "none", "not found", "not present", "isn't", "no such"]]
