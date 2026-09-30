@@ -5,10 +5,13 @@ resources:
   - agentgateway.yaml
   - agentregistry.yaml
   - agent-retrieval.yaml
+  - genai-collector.yaml
   - kagent.yaml
   - llama-cpp-embeddings.yaml
   - llmd.yaml
   - mcp-servers.yaml
+  - mlflow.yaml
   - neo4j.yaml
+  - opentelemetry-demo.yaml
   - phoenix.yaml
   - qdrant.yaml

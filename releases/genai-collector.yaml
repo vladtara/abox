@@ -1,0 +1,158 @@
+# One OTLP entry point for GenAI traces, fanned out to the three backends
+# compared in eval/o11y:
+#
+#   kagent agents ----------------> genai-collector --+--> jaeger (otel-demo)
+#   otel-demo gateway collector --> genai-collector   +--> phoenix
+#                                                     +--> mlflow
+#
+# kagent (releases/kagent.yaml) exports here directly; this collector gives
+# kagent traces to jaeger itself, so plain OTel sees every kagent span. The
+# otel-demo collector already writes the shop's traces to jaeger and sends a
+# copy here.
+#
+# Phoenix and MLflow only get traces that contain at least one GenAI span.
+# tail_sampling holds each trace for decision_wait and then keeps the whole
+# trace if any span matches, so an agent run keeps its HTTP and tool spans
+# while shop traffic without an LLM call (most of it) and kagent's UI polling
+# are dropped. The cost is that a trace reaches the GenAI backends
+# decision_wait after its first span.
+#
+# Each source gets its own Phoenix project (openinference.project.name) and
+# its own MLflow experiment (x-mlflow-experiment-id, IDs pinned by the
+# mlflow-experiments Job in releases/mlflow.yaml).
+#
+# Phoenix runs with auth on and rejects OTLP without a key. The key is a
+# Phoenix system API key, kept out of Git like abox-openai:
+#
+#   kubectl create secret generic phoenix-otlp -n observability \
+#     --from-literal=PHOENIX_API_KEY=<system key>
+#
+# The Secret is optional so the collector still serves jaeger and mlflow
+# before it exists; restart the collector after creating it.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: observability
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: genai-collector
+  namespace: observability
+spec:
+  interval: 1h
+  releaseName: genai-collector
+  chart:
+    spec:
+      chart: opentelemetry-collector
+      version: "0.173.1"
+      sourceRef:
+        kind: HelmRepository
+        name: open-telemetry
+        namespace: flux-system
+  install:
+    createNamespace: true
+  values:
+    mode: deployment
+    fullnameOverride: genai-collector
+    image:
+      repository: otel/opentelemetry-collector-contrib
+    ports:
+      jaeger-compact:
+        enabled: false
+      jaeger-thrift:
+        enabled: false
+      jaeger-grpc:
+        enabled: false
+      zipkin:
+        enabled: false
+    extraEnvs:
+      - name: PHOENIX_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: phoenix-otlp
+            key: PHOENIX_API_KEY
+            optional: true
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        memory: 512Mi
+    config:
+      receivers:
+        jaeger: null
+        zipkin: null
+      processors:
+        tail_sampling/genai:
+          decision_wait: 30s
+          num_traces: 20000
+          decision_cache:
+            sampled_cache_size: 20000
+          policies:
+            - name: has-genai-span
+              type: ottl_condition
+              ottl_condition:
+                error_mode: ignore
+                span:
+                  - attributes["gen_ai.operation.name"] != nil
+                  - attributes["gen_ai.system"] != nil
+                  - attributes["gen_ai.provider.name"] != nil
+                  - attributes["traceloop.span.kind"] != nil
+        resource/kagent:
+          attributes:
+            - key: openinference.project.name
+              value: kagent
+              action: upsert
+        resource/astronomy-shop:
+          attributes:
+            - key: openinference.project.name
+              value: astronomy-shop
+              action: upsert
+      connectors:
+        # otel-demo's collector stamps k8s.namespace.name through its
+        # k8s_attributes preset; kagent spans reach here without it, so
+        # everything else is treated as kagent.
+        routing:
+          default_pipelines: [traces/kagent]
+          table:
+            - statement: route() where resource.attributes["k8s.namespace.name"] == "otel-demo"
+              pipelines: [traces/astronomy-shop]
+        forward/kagent: {}
+      exporters:
+        otlp_grpc/jaeger:
+          endpoint: jaeger.otel-demo.svc.cluster.local:4317
+          tls:
+            insecure: true
+        otlp_grpc/phoenix:
+          endpoint: phoenix-svc.phoenix.svc.cluster.local:4317
+          tls:
+            insecure: true
+          headers:
+            authorization: Bearer ${env:PHOENIX_API_KEY}
+        otlp_http/mlflow-kagent:
+          endpoint: http://mlflow.mlflow.svc.cluster.local:5000
+          headers:
+            x-mlflow-experiment-id: "1"
+        otlp_http/mlflow-astronomy-shop:
+          endpoint: http://mlflow.mlflow.svc.cluster.local:5000
+          headers:
+            x-mlflow-experiment-id: "2"
+      service:
+        pipelines:
+          traces:
+            receivers: [otlp]
+            processors: [memory_limiter]
+            exporters: [routing]
+          traces/kagent:
+            receivers: [routing]
+            processors: []
+            exporters: [otlp_grpc/jaeger, forward/kagent]
+          traces/kagent-genai:
+            receivers: [forward/kagent]
+            processors: [tail_sampling/genai, resource/kagent]
+            exporters: [otlp_grpc/phoenix, otlp_http/mlflow-kagent]
+          traces/astronomy-shop:
+            receivers: [routing]
+            processors: [tail_sampling/genai, resource/astronomy-shop]
+            exporters: [otlp_grpc/phoenix, otlp_http/mlflow-astronomy-shop]
