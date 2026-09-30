@@ -84,10 +84,24 @@ spec:
       enabled: false
     cilium-debug-agent:
       enabled: false
+    # Renders default-model-config, which retrieval-agent and the chart's own
+    # agents, k8s-agent among them, all run on. No apiKey here: with one set the
+    # chart renders a Secret holding it, which is how the literal string
+    # "OPENAI_API_KEY" became the key. The Secret is created out of band so the
+    # key never enters Git or the OCI artifact:
+    #
+    #   kubectl create secret generic abox-openai -n kagent \
+    #     --from-literal=OPENAI_API_KEY=<key>
+    #
+    # Named abox-openai, not the chart's kagent-openai: the upgrade that drops
+    # apiKey deletes the Secret the chart used to own under that name.
     providers:
       default: openAI
       openAI:
-        apiKey: OPENAI_API_KEY
+        provider: OpenAI
+        model: gpt-4.1-mini
+        apiKeySecretRef: abox-openai
+        apiKeySecretKey: OPENAI_API_KEY
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant
