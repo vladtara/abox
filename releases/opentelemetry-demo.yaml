@@ -1,0 +1,105 @@
+# OpenTelemetry Demo (Astronomy Shop) -- https://opentelemetry.io/docs/demo/
+#
+# The "standard OTel" side of the GenAI comparison. Besides the shop's
+# microservices, demo 3.x ships an AI assistant: agent (LangGraph ReAct,
+# Traceloop/OpenLLMetry instrumentation), chatbot (Gradio UI on /chatbot/) and
+# mcp. The agent replays LLM answers from VCR cassettes (USE_VCR=True), so it
+# needs no model or key, and the load generator's ask_agent task sends it the
+# three prompts those cassettes cover.
+#
+# Its bundled backends stay on as the plain OTel stack: jaeger (traces),
+# prometheus + grafana (metrics, span metrics). OpenSearch is off, it is logs
+# only and the heaviest of them. Every trace the gateway collector receives is
+# also forwarded to genai-collector (releases/genai-collector.yaml), which keeps
+# the GenAI ones for Phoenix and MLflow.
+#
+#   kubectl port-forward -n otel-demo svc/frontend-proxy 8080:8080
+#
+# then /, /chatbot/, /jaeger/ui/, /grafana/, /feature/ (flagd UI, where the
+# aiSlowResponse and aiRunawayAgent flags live).
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: otel-demo
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: open-telemetry
+  namespace: flux-system
+spec:
+  interval: 1h
+  url: https://open-telemetry.github.io/opentelemetry-helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: opentelemetry-demo
+  namespace: otel-demo
+spec:
+  interval: 1h
+  releaseName: opentelemetry-demo
+  chart:
+    spec:
+      chart: opentelemetry-demo
+      version: "0.42.1"
+      sourceRef:
+        kind: HelmRepository
+        name: open-telemetry
+        namespace: flux-system
+  # ~25 images on first install; the 5m default ran out mid-pull and left the
+  # release Stalled with nothing actually wrong.
+  timeout: 15m
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  values:
+    components:
+      # locustfile.py exports with the OTLP gRPC exporter, but the chart points
+      # it at the collector's HTTP port (docker-compose uses 4317). None of its
+      # spans leave the pod, so user_ask_agent, the root of every agent trace,
+      # is missing: jaeger shows a missing parent, and MLflow, which finishes
+      # a trace only when its root span arrives, keeps them IN_PROGRESS.
+      load-generator:
+        envOverrides:
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://otel-collector:4317
+    opensearch:
+      enabled: false
+    # The demo collector's kubeletMetrics/clusterMetrics presets scrape every
+    # pod in the cluster, not just the shop's, and the 400Mi default OOMKills
+    # on a cluster this size (seen upstream on feat/otel-demo).
+    prometheus:
+      server:
+        resources:
+          limits:
+            memory: 768Mi
+    # Both OOMKilled at the chart defaults once kagent traffic joined the
+    # shop's: jaeger (600Mi, traces held in memory up to MEMORY_MAX_TRACES)
+    # on a 3h trace search, grafana (300Mi) rendering an Explore query. A
+    # jaeger restart drops every trace it holds.
+    jaeger:
+      jaeger:
+        resources:
+          limits:
+            memory: 1Gi
+    grafana:
+      resources:
+        limits:
+          memory: 512Mi
+    opentelemetry-collector:
+      config:
+        exporters:
+          otlp_grpc/genai:
+            endpoint: genai-collector.observability.svc.cluster.local:4317
+            tls:
+              insecure: true
+        service:
+          pipelines:
+            traces:
+              exporters: [otlp_grpc/jaeger, debug, span_metrics, otlp_grpc/genai]
+            # The opensearch exporter stays defined (a null does not survive
+            # the umbrella chart's value coalescing) but nothing uses it.
+            logs:
+              exporters: [debug]

@@ -1,0 +1,47 @@
+[
+  {
+    "pod": "genai-collector-59f46744c9-w4p4l",
+    "ns": "observability",
+    "mem_mib": 117
+  },
+  {
+    "pod": "phoenix-postgresql-0",
+    "ns": "phoenix",
+    "mem_mib": 62
+  },
+  {
+    "pod": "prometheus-54b6d7c49b-gthtg",
+    "ns": "otel-demo",
+    "mem_mib": 478
+  },
+  {
+    "pod": "otel-collector-agent-klpkn",
+    "ns": "otel-demo",
+    "mem_mib": 142
+  },
+  {
+    "pod": "grafana-8db494f47-kjjmx",
+    "ns": "otel-demo",
+    "mem_mib": 491
+  },
+  {
+    "pod": "jaeger-6f8bdb5997-9p7cv",
+    "ns": "otel-demo",
+    "mem_mib": 427
+  },
+  {
+    "pod": "otel-collector-agent-7n777",
+    "ns": "otel-demo",
+    "mem_mib": 110
+  },
+  {
+    "pod": "phoenix-5dfb5776bd-47zdn",
+    "ns": "phoenix",
+    "mem_mib": 491
+  },
+  {
+    "pod": "mlflow-67c4db5cbf-6p8gz",
+    "ns": "mlflow",
+    "mem_mib": 1880
+  }
+]

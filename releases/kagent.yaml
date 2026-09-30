@@ -102,6 +102,16 @@ spec:
         model: gpt-4.1-mini
         apiKeySecretRef: abox-openai
         apiKeySecretKey: OPENAI_API_KEY
+    # The controller copies every OTEL_* variable it runs with into the agent
+    # pods it creates, so this also turns on tracing in every agent.
+    otel:
+      tracing:
+        enabled: true
+        exporter:
+          otlp:
+            endpoint: http://genai-collector.observability.svc.cluster.local:4317
+            protocol: grpc
+            insecure: true
 ---
 apiVersion: gateway.networking.k8s.io/v1beta1
 kind: ReferenceGrant

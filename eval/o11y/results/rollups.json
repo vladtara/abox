@@ -1,0 +1,258 @@
+{
+ "mlflow_states": {
+  "kagent": {
+   "OK": 12
+  },
+  "astronomy-shop": {
+   "OK": 60,
+   "IN_PROGRESS": 37
+  }
+ },
+ "phoenix_projects": [
+  {
+   "name": "kagent",
+   "traceCount": 12,
+   "recordCount": 104,
+   "tokenCountTotal": 313513.0,
+   "tokenCountPrompt": 311739.0,
+   "tokenCountCompletion": 1774.0,
+   "sessionCount": 10,
+   "p50": 4061.85,
+   "p99": 6472.633000000001,
+   "costSummary": {
+    "total": {
+     "cost": 0.12753399999999998
+    }
+   }
+  },
+  {
+   "name": "astronomy-shop",
+   "traceCount": 97,
+   "recordCount": 1546,
+   "tokenCountTotal": 0.0,
+   "tokenCountPrompt": 0.0,
+   "tokenCountCompletion": 0.0,
+   "sessionCount": 2,
+   "p50": 151.1,
+   "p99": 10196.58,
+   "costSummary": {
+    "total": {
+     "cost": null
+    }
+   }
+  }
+ ],
+ "prometheus": {
+  "gen_ai_client_operation_duration_seconds_count": [
+   {
+    "labels": {
+     "__name__": "gen_ai_client_operation_duration_seconds_count",
+     "gen_ai_provider_name": "langchain",
+     "gen_ai_response_model": "azure/gpt-5.5",
+     "host_name": "otel-collector-agent-klpkn",
+     "instance": "b239a92e-a2dd-4757-8df6-1d72586ba45d",
+     "job": "opentelemetry-demo/agent",
+     "k8s_container_name": "agent",
+     "k8s_deployment_name": "agent",
+     "k8s_namespace_name": "otel-demo",
+     "k8s_node_name": "abox-worker",
+     "k8s_pod_name": "agent-7bcb954964-nht9k",
+     "k8s_replicaset_name": "agent-7bcb954964",
+     "service_instance_id": "b239a92e-a2dd-4757-8df6-1d72586ba45d",
+     "service_name": "agent",
+     "service_namespace": "opentelemetry-demo",
+     "service_version": "3.1.0"
+    },
+    "value": "240"
+   }
+  ],
+  "gen_ai_client_token_usage_sum": [],
+  "histogram_quantile(0.95, sum by (le, span_name) (rate(traces_span_metrics_duration_milliseconds_bucket{service_name=\"agent\"}[15m])))": [
+   {
+    "labels": {
+     "span_name": "execute_task tools"
+    },
+    "value": "89.99999999999997"
+   },
+   {
+    "labels": {
+     "span_name": "LangGraph.workflow"
+    },
+    "value": "13149.999999999996"
+   },
+   {
+    "labels": {
+     "span_name": "invoke_agent LangGraph"
+    },
+    "value": "13149.999999999996"
+   },
+   {
+    "labels": {
+     "span_name": "GET"
+    },
+    "value": "NaN"
+   },
+   {
+    "labels": {
+     "span_name": "execute_tool get_supported_currencies"
+    },
+    "value": "69.99999999999999"
+   },
+   {
+    "labels": {
+     "span_name": "astronomy_shop_agent_workflow.workflow"
+    },
+    "value": "13149.999999999996"
+   },
+   {
+    "labels": {
+     "span_name": "POST /prompt"
+    },
+    "value": "13149.999999999996"
+   },
+   {
+    "labels": {
+     "span_name": "execute_task model"
+    },
+    "value": "7687.4999999999945"
+   },
+   {
+    "labels": {
+     "span_name": "execute_tool list_products"
+    },
+    "value": "94.5"
+   },
+   {
+    "labels": {
+     "span_name": "execute_tool get_ads"
+    },
+    "value": "83.75"
+   },
+   {
+    "labels": {
+     "span_name": "POST /prompt http receive"
+    },
+    "value": "1.9"
+   },
+   {
+    "labels": {
+     "span_name": "POST /prompt http send"
+    },
+    "value": "1.9"
+   },
+   {
+    "labels": {
+     "span_name": "ChatLLM.chat"
+    },
+    "value": "7687.4999999999945"
+   }
+  ]
+ },
+ "incident": {
+  "window": "2026-09-30T19:41:52Z/2026-09-30T19:46:54Z",
+  "phoenix": {
+   "before": {
+    "n": 34,
+    "p50": 23.6,
+    "p95": 35.655
+   },
+   "during": {
+    "n": 14,
+    "p50": 5034.2,
+    "p95": 5044.42
+   }
+  },
+  "jaeger": {
+   "before": {
+    "n": 14,
+    "p50": 24.605,
+    "p95": 36.955
+   },
+   "during": {
+    "n": 14,
+    "p50": 5034.367,
+    "p95": 5046.511
+   }
+  },
+  "mlflow": {
+   "before": {
+    "traces": 17,
+    "ok": 16,
+    "p50_s": 0.144
+   },
+   "during": {
+    "traces": 11,
+    "ok": 11,
+    "p50_s": 10.17
+   }
+  },
+  "prometheus": {
+   "chatllm_p95_ms_per_minute": [
+    [
+     "19:36",
+     "48"
+    ],
+    [
+     "19:37",
+     "48"
+    ],
+    [
+     "19:38",
+     "48"
+    ],
+    [
+     "19:39",
+     "48"
+    ],
+    [
+     "19:40",
+     "48"
+    ],
+    [
+     "19:41",
+     "48"
+    ],
+    [
+     "19:42",
+     "48"
+    ],
+    [
+     "19:43",
+     "9500"
+    ],
+    [
+     "19:44",
+     "9750"
+    ],
+    [
+     "19:45",
+     "9750"
+    ],
+    [
+     "19:46",
+     "9750"
+    ],
+    [
+     "19:47",
+     "9500"
+    ],
+    [
+     "19:48",
+     "48"
+    ],
+    [
+     "19:49",
+     "49.9"
+    ],
+    [
+     "19:50",
+     "69.99999999999994"
+    ],
+    [
+     "19:51",
+     "48"
+    ]
+   ]
+  }
+ }
+}

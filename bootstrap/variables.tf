@@ -34,8 +34,8 @@ variable "releases_artifact" {
   # bootstrapped from main would get this branch's bundle. Each branch
   # therefore has its own repository, matching the name
   # .github/workflows/flux-push.yaml derives from the branch's last path
-  # segment: feat/qdrant-official-mcp -> releases-qdrant-official-mcp.
-  default = "releases-qdrant-official-mcp"
+  # segment: feat/genai-o11y -> releases-genai-o11y.
+  default = "releases-genai-o11y"
 }
 
 variable "releases_version" {

@@ -1,0 +1,7650 @@
+[
+ {
+  "project": "kagent",
+  "trace_id": "f91ae5c291fc7c528b6cf38325e9149d",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2721,
+     "out": 30
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2799,
+     "out": 75
+    }
+   ],
+   "tokens": {
+    "input_tokens": 5520,
+    "output_tokens": 105,
+    "total_tokens": 5625,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.002208,
+    "output_cost": 0.00016800000000000002,
+    "total_cost": 0.0023760000000000005
+   },
+   "session": "01a0f3e3-e084-74a0-9d8a-07fe6c184268",
+   "state": "OK",
+   "error_spans": 1,
+   "input": null,
+   "output": null,
+   "duration": "3.368s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2799,
+     "out": 75
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2721,
+     "out": 30
+    }
+   ],
+   "tokens": {
+    "prompt": 5520.0,
+    "completion": 105.0,
+    "total": 5625.0
+   },
+   "cost_usd": 0.002376,
+   "session": "01a0f3e3-e084-74a0-9d8a-07fe6c184268",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/k8s-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 3367.336,
+   "error_spans": 1
+  },
+  "jaeger": {
+   "spans": 8,
+   "services": [
+    "k8s_agent",
+    "kagent-controller"
+   ],
+   "typed_as": {
+    "generate_content": 2,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "(none)": 3
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2721,
+     "out": 30
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2799,
+     "out": 75
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/k8s-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 1,
+   "duration_ms": 3367.3349609375
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "3e38dbf20a71ecb4698f3a13ed059963",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1901,
+     "out": 23
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2021,
+     "out": 91
+    }
+   ],
+   "tokens": {
+    "input_tokens": 3922,
+    "output_tokens": 114,
+    "total_tokens": 4036,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0015688,
+    "output_cost": 0.00018240000000000002,
+    "total_cost": 0.0017512
+   },
+   "session": "01a0f3e3-d3da-73d9-817b-ce7aa02cf994",
+   "state": "OK",
+   "error_spans": 1,
+   "input": null,
+   "output": null,
+   "duration": "3.241s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2021,
+     "out": 91
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1901,
+     "out": 23
+    }
+   ],
+   "tokens": {
+    "prompt": 3922.0,
+    "completion": 114.0,
+    "total": 4036.0
+   },
+   "cost_usd": 0.0017511999999999998,
+   "session": "01a0f3e3-d3da-73d9-817b-ce7aa02cf994",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 3240.627,
+   "error_spans": 1
+  },
+  "jaeger": {
+   "spans": 8,
+   "services": [
+    "kagent-controller",
+    "retrieval_agent"
+   ],
+   "typed_as": {
+    "generate_content": 2,
+    "execute_tool": 1,
+    "(none)": 3,
+    "invoke_agent": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1901,
+     "out": 23
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2021,
+     "out": 91
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/retrieval-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 1,
+   "duration_ms": 3240.626953125
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "e961cf29e7a25287ede85bff9894fd18",
+  "mlflow": {
+   "spans": 10,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 3,
+    "TOOL": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 57
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1961,
+     "out": 26
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2984,
+     "out": 50
+    }
+   ],
+   "tokens": {
+    "input_tokens": 6834,
+    "output_tokens": 133,
+    "total_tokens": 6967,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0027336,
+    "output_cost": 0.00021280000000000002,
+    "total_cost": 0.0029464
+   },
+   "session": "01a0f3d6-bfc9-72e3-833a-1a53d4cbc5d6",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "4.559s"
+  },
+  "phoenix": {
+   "spans": 10,
+   "typed_as": {
+    "llm": 3,
+    "unknown": 3,
+    "agent": 2,
+    "tool": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2984,
+     "out": 50
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1961,
+     "out": 26
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 57
+    }
+   ],
+   "tokens": {
+    "prompt": 6834.0,
+    "completion": 133.0,
+    "total": 6967.0
+   },
+   "cost_usd": 0.0029464,
+   "session": "01a0f3d6-bfc9-72e3-833a-1a53d4cbc5d6",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 4559.040999999999,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 10,
+   "services": [
+    "kagent-controller",
+    "retrieval_agent"
+   ],
+   "typed_as": {
+    "(none)": 3,
+    "generate_content": 3,
+    "execute_tool": 2,
+    "invoke_agent": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 57
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1961,
+     "out": 26
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2984,
+     "out": 50
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/retrieval-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 4559.0400390625
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "c64851f9251f37e0093d672468a75f4f",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4870,
+     "out": 24
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 7168,
+     "out": 157
+    }
+   ],
+   "tokens": {
+    "input_tokens": 12038,
+    "output_tokens": 181,
+    "total_tokens": 12219,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0048152,
+    "output_cost": 0.00028960000000000005,
+    "total_cost": 0.0051048000000000005
+   },
+   "session": "01a0f3d6-a43b-7749-b57a-76ce3db5e5b6",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "2.930s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 7168,
+     "out": 157
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4870,
+     "out": 24
+    }
+   ],
+   "tokens": {
+    "prompt": 12038.0,
+    "completion": 181.0,
+    "total": 12219.0
+   },
+   "cost_usd": 0.0051048,
+   "session": "01a0f3d6-a43b-7749-b57a-76ce3db5e5b6",
+   "session_traces": 2,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 2930.1020000000003,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 8,
+   "services": [
+    "kagent-controller",
+    "retrieval_agent"
+   ],
+   "typed_as": {
+    "generate_content": 2,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "(none)": 3
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4870,
+     "out": 24
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 7168,
+     "out": 157
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/retrieval-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 2930.100830078125
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "b89460af6edb0641f3135c77c9f94afb",
+  "mlflow": {
+   "spans": 12,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 3,
+    "TOOL": 4
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 51
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 3198,
+     "out": 22
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4732,
+     "out": 120
+    }
+   ],
+   "tokens": {
+    "input_tokens": 9819,
+    "output_tokens": 193,
+    "total_tokens": 10012,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.003927600000000001,
+    "output_cost": 0.0003088,
+    "total_cost": 0.0042364
+   },
+   "session": "01a0f3d6-a43b-7749-b57a-76ce3db5e5b6",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "4.113s"
+  },
+  "phoenix": {
+   "spans": 12,
+   "typed_as": {
+    "tool": 4,
+    "llm": 3,
+    "unknown": 3,
+    "agent": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4732,
+     "out": 120
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 3198,
+     "out": 22
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 51
+    }
+   ],
+   "tokens": {
+    "prompt": 9819.0,
+    "completion": 193.0,
+    "total": 10012.0
+   },
+   "cost_usd": 0.0042363999999999995,
+   "session": "01a0f3d6-a43b-7749-b57a-76ce3db5e5b6",
+   "session_traces": 2,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 4112.245,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 12,
+   "services": [
+    "kagent-controller",
+    "retrieval_agent"
+   ],
+   "typed_as": {
+    "generate_content": 3,
+    "execute_tool": 4,
+    "invoke_agent": 2,
+    "(none)": 3
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 51
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 3198,
+     "out": 22
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4732,
+     "out": 120
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/retrieval-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 4112.244140625
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "6a10194b336da03fc9484fc0016e6933",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2706,
+     "out": 28
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 230420,
+     "out": 112
+    }
+   ],
+   "tokens": {
+    "input_tokens": 233126,
+    "output_tokens": 140,
+    "total_tokens": 233266,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.09325040000000001,
+    "output_cost": 0.00022400000000000002,
+    "total_cost": 0.09347440000000001
+   },
+   "session": "01a0f3d6-8a99-7b62-ac38-14bca55af69d",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "6.544s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 230420,
+     "out": 112
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2706,
+     "out": 28
+    }
+   ],
+   "tokens": {
+    "prompt": 233126.0,
+    "completion": 140.0,
+    "total": 233266.0
+   },
+   "cost_usd": 0.0934744,
+   "session": "01a0f3d6-8a99-7b62-ac38-14bca55af69d",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/k8s-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 6544.052,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 8,
+   "services": [
+    "k8s_agent",
+    "kagent-controller"
+   ],
+   "typed_as": {
+    "generate_content": 2,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "(none)": 3
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2706,
+     "out": 28
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 230420,
+     "out": 112
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/k8s-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 6544.051025390625
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "29a3bea14bf112c0a83fe896b6cc4f50",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2716,
+     "out": 74
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2964,
+     "out": 89
+    }
+   ],
+   "tokens": {
+    "input_tokens": 5680,
+    "output_tokens": 163,
+    "total_tokens": 5843,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0022720000000000006,
+    "output_cost": 0.00026080000000000005,
+    "total_cost": 0.0025328000000000004
+   },
+   "session": "01a0f3d6-7d2e-7dcb-b7c7-16c538cb961e",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "3.433s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2964,
+     "out": 89
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2716,
+     "out": 74
+    }
+   ],
+   "tokens": {
+    "prompt": 5680.0,
+    "completion": 163.0,
+    "total": 5843.0
+   },
+   "cost_usd": 0.0025328,
+   "session": "01a0f3d6-7d2e-7dcb-b7c7-16c538cb961e",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/k8s-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 3432.156,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 8,
+   "services": [
+    "k8s_agent",
+    "kagent-controller"
+   ],
+   "typed_as": {
+    "generate_content": 2,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "(none)": 3
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2716,
+     "out": 74
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2964,
+     "out": 89
+    }
+   ],
+   "roots": [
+    "POST /api/a2a/kagent/k8s-agent/"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 3432.156005859375
+  }
+ },
+ {
+  "project": "kagent",
+  "trace_id": "a4edb9bd9339d2c50c7be433d443d040",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2715,
+     "out": 34
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 6478,
+     "out": 158
+    }
+   ],
+   "tokens": {
+    "input_tokens": 9193,
+    "output_tokens": 192,
+    "total_tokens": 9385,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0036772000000000003,
+    "output_cost": 0.00030720000000000004,
+    "total_cost": 0.003984400000000001
+   },
+   "session": "01a0f3cc-bbde-709b-a099-0858c035cdf2",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "4.915s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 6478,
+     "out": 158
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2715,
+     "out": 34
+    }
+   ],
+   "tokens": {
+    "prompt": 9193.0,
+    "completion": 192.0,
+    "total": 9385.0
+   },
+   "cost_usd": 0.0039844,
+   "session": "01a0f3cc-bbde-709b-a099-0858c035cdf2",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/k8s-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 4915.639999999999,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "kagent",
+  "trace_id": "e86a6c40bda1aa88a9c37e30db38eeba",
+  "mlflow": {
+   "spans": 8,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2706,
+     "out": 27
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2899,
+     "out": 109
+    }
+   ],
+   "tokens": {
+    "input_tokens": 5605,
+    "output_tokens": 136,
+    "total_tokens": 5741,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.002242,
+    "output_cost": 0.00021760000000000003,
+    "total_cost": 0.0024596
+   },
+   "session": "01a0f3cc-abaf-7347-b455-0c32b94cd51e",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "4.142s"
+  },
+  "phoenix": {
+   "spans": 8,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2899,
+     "out": 109
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 2706,
+     "out": 27
+    }
+   ],
+   "tokens": {
+    "prompt": 5605.0,
+    "completion": 136.0,
+    "total": 5741.0
+   },
+   "cost_usd": 0.0024595999999999997,
+   "session": "01a0f3cc-abaf-7347-b455-0c32b94cd51e",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/k8s-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 4141.762,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "kagent",
+  "trace_id": "9e23780ab8d43352688d1f994c113b58",
+  "mlflow": {
+   "spans": 10,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 3,
+    "TOOL": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1887,
+     "out": 10
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1934,
+     "out": 73
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 3982,
+     "out": 96
+    }
+   ],
+   "tokens": {
+    "input_tokens": 7803,
+    "output_tokens": 179,
+    "total_tokens": 7982,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0031212,
+    "output_cost": 0.0002864,
+    "total_cost": 0.0034076
+   },
+   "session": "01a0f3cc-9bf8-7db2-9b53-3d4b81c5d77b",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "4.011s"
+  },
+  "phoenix": {
+   "spans": 10,
+   "typed_as": {
+    "llm": 3,
+    "unknown": 3,
+    "agent": 2,
+    "tool": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 3982,
+     "out": 96
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1934,
+     "out": 73
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1887,
+     "out": 10
+    }
+   ],
+   "tokens": {
+    "prompt": 7803.0,
+    "completion": 179.0,
+    "total": 7982.0
+   },
+   "cost_usd": 0.0034075999999999998,
+   "session": "01a0f3cc-9bf8-7db2-9b53-3d4b81c5d77b",
+   "session_traces": 1,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 4011.476,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "kagent",
+  "trace_id": "708c23d6bc5c2bd6cdc57d9f0a8517ee",
+  "mlflow": {
+   "spans": 6,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4270,
+     "out": 48
+    }
+   ],
+   "tokens": {
+    "input_tokens": 4270,
+    "output_tokens": 48,
+    "total_tokens": 4318,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.001708,
+    "output_cost": 7.680000000000001e-05,
+    "total_cost": 0.0017848
+   },
+   "session": "01a0f3cc-7c22-7bc9-af53-ab5cad222ad8",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "2.252s"
+  },
+  "phoenix": {
+   "spans": 6,
+   "typed_as": {
+    "unknown": 3,
+    "agent": 2,
+    "llm": 1
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4270,
+     "out": 48
+    }
+   ],
+   "tokens": {
+    "prompt": 4270.0,
+    "completion": 48.0,
+    "total": 4318.0
+   },
+   "cost_usd": 0.0017847999999999998,
+   "session": "01a0f3cc-7c22-7bc9-af53-ab5cad222ad8",
+   "session_traces": 2,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 2251.766,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "kagent",
+  "trace_id": "380d69ba32f9f420984e438bcd023486",
+  "mlflow": {
+   "spans": 10,
+   "typed_as": {
+    "(none)": 3,
+    "AGENT": 2,
+    "LLM": 3,
+    "TOOL": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 10
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1936,
+     "out": 29
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4104,
+     "out": 151
+    }
+   ],
+   "tokens": {
+    "input_tokens": 7929,
+    "output_tokens": 190,
+    "total_tokens": 8119,
+    "cache_read_input_tokens": 0
+   },
+   "cost_usd": {
+    "input_cost": 0.0031716,
+    "output_cost": 0.000304,
+    "total_cost": 0.0034756
+   },
+   "session": "01a0f3cc-7c22-7bc9-af53-ab5cad222ad8",
+   "state": "OK",
+   "error_spans": 0,
+   "input": null,
+   "output": null,
+   "duration": "5.895s"
+  },
+  "phoenix": {
+   "spans": 10,
+   "typed_as": {
+    "llm": 3,
+    "unknown": 3,
+    "agent": 2,
+    "tool": 2
+   },
+   "llm_spans": [
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 4104,
+     "out": 151
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1936,
+     "out": 29
+    },
+    {
+     "name": "generate_content gpt-4.1-mini",
+     "model": "gpt-4.1-mini",
+     "in": 1889,
+     "out": 10
+    }
+   ],
+   "tokens": {
+    "prompt": 7929.0,
+    "completion": 190.0,
+    "total": 8119.0
+   },
+   "cost_usd": 0.0034755999999999997,
+   "session": "01a0f3cc-7c22-7bc9-af53-ab5cad222ad8",
+   "session_traces": 2,
+   "root": "POST /api/a2a/kagent/retrieval-agent/",
+   "root_kind": "unknown",
+   "input": null,
+   "output": null,
+   "latency_ms": 5894.418,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "1f8db427faff719b7b945698bb4f37c0",
+  "mlflow": {
+   "spans": 5,
+   "typed_as": {
+    "(none)": 3,
+    "TASK": 1,
+    "CHAT_MODEL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.171s"
+  },
+  "phoenix": {
+   "spans": 5,
+   "typed_as": {
+    "unknown": 3,
+    "llm": 2
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 170.609,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 5,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 3,
+    "chat": 1,
+    "execute_task": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 2,
+   "error_spans": 0,
+   "duration_ms": 170.609130859375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "85858527f52116cd300b9c4d99b711d3",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.144s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 144.041,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 144.0400390625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "aa59dec41aa4202ba2f3b28a6f1887c2",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.182s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 181.881,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 181.880126953125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "c50dddf0daeaf9211c33cef752939dfa",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.166s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 166.154,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 166.154052734375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "a223ce4dbc92a71d4cd7b5b821a44f2b",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.159s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 158.84,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 158.839111328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "9e572c84999ef8a8212dfe83fe09f2eb",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.137s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 136.524,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 136.52392578125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "9ef1bc3eec1bb28b410a2f58b5010f6c",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.162s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 162.174,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 162.173095703125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "16aeaae74444f9c4c7377996a5352093",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.156s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 156.862,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 156.861083984375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "925ff6c3937ac9e35b180ac1d0d8f3d2",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.135s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 135.767,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 135.76611328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "647c27001fa8896f59dc06f46515bf39",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.156s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 155.45999999999998,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 155.458984375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "a527f30900f094ba446ac90cee7c751f",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.144s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 144.407,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 144.406982421875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "ac537b0a47cb87a8281dec2925c8236f",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.134s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 133.555,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 133.55419921875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "0c7c889baa839cd43f39549d09b892ce",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.132s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 131.28,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 131.280029296875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "639dfbc228cb451dac15915cbcb20a91",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.160s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 160.511,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 160.510986328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "0c3a3ec1cf5f3e8dd2c70ae1970964ea",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.143s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 143.57600000000002,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 143.575927734375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "61682526f9d65232d39b1b76c3334dc0",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.210s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 209.32,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 209.320068359375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "494d3fcc739cdb9bb4f7189d821c20b8",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.216s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 215.39600000000002,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 215.39599609375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "2ffb6cf02b4340e5c49e8609e5656cf9",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.150s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 150.179,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 150.177978515625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "97d990fb481a31bfe88965e030778a7c",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.142s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 141.398,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 141.39697265625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "b0e32fc0df51183aeac6cbe9ea6ce3a2",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.157s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 156.983,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 156.98291015625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "2a5caa72e45548043e6e8e3a291f207d",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.182s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 181.88199999999998,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 181.882080078125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "6cb0323c326431774f672568484abeb3",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.179s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 178.184,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 178.18310546875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "e1b75348ec51f96aea5c4343f35e03d1",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.345s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 344.794,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 344.7939453125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "52e288c87d6d62aa20486b81cebe19ab",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.158s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 157.596,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 157.595947265625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "5b00e3bb273dfb07e7592035e41bf91c",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.157s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 156.955,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 156.954833984375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "5c85d99ce50b9fbf0e9ccf346d70a499",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.143s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 142.703,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1,
+    "(none)": 6
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 142.7021484375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "8b0d71e6873fa09f1217db783961afde",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.175s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 175.49699999999999,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 175.4970703125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "82f36d19526fb14699babc3f53f19712",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.168s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 167.667,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 167.6669921875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "1b6284088eeddcaaf14c59fce00c9d80",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.159s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 159.16,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 159.159912109375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "998fd3af59bf27618acaffff419aa080",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.144s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 144.417,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 144.4169921875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "6d54dbea70fae7893cceb3f4357403b4",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.154s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 153.784,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 153.782958984375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "63f5ef272e3410c8cb43108f185faae0",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.156s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 156.79399999999998,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 156.79296875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "62c6af34d1a660ceb99668cec48d7667",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.148s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 147.97,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 147.968994140625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "2cfad71b5cba2258c10daf50ac0d6530",
+  "mlflow": {
+   "spans": 10,
+   "typed_as": {
+    "(none)": 5,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 1,
+    "CHAT_MODEL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "10.144s"
+  },
+  "phoenix": {
+   "spans": 10,
+   "typed_as": {
+    "unknown": 6,
+    "agent": 2,
+    "llm": 2
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10144.866,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 10,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "chat": 1,
+    "execute_task": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1,
+    "(none)": 5
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10144.865966796875
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "3c1c9418fb56e7d12cd8da50b7fc7777",
+  "mlflow": {
+   "spans": 10,
+   "typed_as": {
+    "(none)": 5,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 1,
+    "CHAT_MODEL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "10.143s"
+  },
+  "phoenix": {
+   "spans": 10,
+   "typed_as": {
+    "unknown": 6,
+    "agent": 2,
+    "llm": 2
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10143.056,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 10,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 5,
+    "chat": 1,
+    "execute_task": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10143.05615234375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "7b985a067781bc44e0c65a9ee8a99f31",
+  "mlflow": {
+   "spans": 11,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 1,
+    "CHAT_MODEL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "10.133s"
+  },
+  "phoenix": {
+   "spans": 11,
+   "typed_as": {
+    "unknown": 7,
+    "agent": 2,
+    "llm": 2
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10132.357,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 11,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 1,
+    "execute_task": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10132.35595703125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "79fbb8b3b3659aaf52a1676ab2eefea9",
+  "mlflow": {
+   "spans": 11,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 1,
+    "CHAT_MODEL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "10.164s"
+  },
+  "phoenix": {
+   "spans": 11,
+   "typed_as": {
+    "unknown": 7,
+    "agent": 2,
+    "llm": 2
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10164.018,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 11,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 1,
+    "execute_task": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10164.01806640625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "304f55c1230a0056d86c793645e7ee0e",
+  "mlflow": {
+   "spans": 7,
+   "typed_as": {
+    "(none)": 3,
+    "TASK": 2,
+    "CHAT_MODEL": 1,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "10.157s"
+  },
+  "phoenix": {
+   "spans": 7,
+   "typed_as": {
+    "unknown": 4,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10157.809000000001,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 7,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 3,
+    "chat": 1,
+    "execute_task": 2,
+    "execute_tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 3,
+   "error_spans": 0,
+   "duration_ms": 10157.807861328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "606cd8938df6e70c368d3908daa23b5b",
+  "mlflow": {
+   "spans": 7,
+   "typed_as": {
+    "(none)": 3,
+    "TASK": 2,
+    "CHAT_MODEL": 1,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "10.200s"
+  },
+  "phoenix": {
+   "spans": 7,
+   "typed_as": {
+    "unknown": 4,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10200.911,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 7,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 3,
+    "chat": 1,
+    "execute_task": 2,
+    "execute_tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 3,
+   "error_spans": 0,
+   "duration_ms": 10200.909912109375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "6f2331b9d6feab7b384a44b1858d98ec",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "10.196s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10196.327,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10196.325927734375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "3b6306a5b85731ea1b77eb294ee86eb1",
+  "mlflow": {
+   "spans": 7,
+   "typed_as": {
+    "(none)": 3,
+    "TASK": 2,
+    "CHAT_MODEL": 1,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "10.190s"
+  },
+  "phoenix": {
+   "spans": 7,
+   "typed_as": {
+    "unknown": 4,
+    "llm": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10190.426000000001,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 7,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 3,
+    "chat": 1,
+    "execute_task": 2,
+    "execute_tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 3,
+   "error_spans": 0,
+   "duration_ms": 10190.42578125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "2f51cc64971a91f1b18ec9f9b64f127e",
+  "mlflow": {
+   "spans": 14,
+   "typed_as": {
+    "(none)": 5,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "10.181s"
+  },
+  "phoenix": {
+   "spans": 14,
+   "typed_as": {
+    "unknown": 8,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10180.769,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 14,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1,
+    "(none)": 5
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10180.76806640625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "1b66bb155ce42fb4d24195eb9008f0f2",
+  "mlflow": {
+   "spans": 14,
+   "typed_as": {
+    "(none)": 5,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "10.197s"
+  },
+  "phoenix": {
+   "spans": 14,
+   "typed_as": {
+    "unknown": 8,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10196.412,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 14,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "(none)": 5,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10196.4111328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "8491097b5676a909513acbfafef05b2b",
+  "mlflow": {
+   "spans": 10,
+   "typed_as": {
+    "(none)": 5,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 1,
+    "CHAT_MODEL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "10.170s"
+  },
+  "phoenix": {
+   "spans": 10,
+   "typed_as": {
+    "unknown": 6,
+    "agent": 2,
+    "llm": 2
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 10170.302,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 10,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "chat": 1,
+    "execute_task": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1,
+    "(none)": 5
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 10170.301025390625
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "a840036b2da77f156874c825e44eefb2",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.143s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 142.833,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 142.83203125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "7ecd108b9cc0d85f1bb9607bf334a739",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.134s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 133.732,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 133.73095703125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "c8ae9fa82c7523a0ef48b9b670eeca55",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.134s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 133.912,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 133.9111328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "59317e64d25aa256f0c510e95ac7b32a",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.180s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 179.714,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 179.714111328125
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "c406e5425d9f29ec0c40f5b137e641c0",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.140s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 139.988,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 139.988037109375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "94566d64635d3b16f6fe676405172615",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.177s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 176.988,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 176.988037109375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "13a0fc9c5bb50f1a61e588d24fea939a",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.208s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 208.27599999999998,
+   "error_spans": 0
+  },
+  "jaeger": {
+   "spans": 15,
+   "services": [
+    "agent",
+    "load-generator"
+   ],
+   "typed_as": {
+    "(none)": 6,
+    "chat": 2,
+    "execute_task": 3,
+    "execute_tool": 1,
+    "invoke_agent": 2,
+    "invoke_workflow": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "roots": [
+    "user_ask_agent"
+   ],
+   "missing_parents": 0,
+   "error_spans": 0,
+   "duration_ms": 208.275146484375
+  }
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "352142351a69baf9a348ccb0f19d7ce8",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.133s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 132.606,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "0095c09ed80da6457d7ca39156eab94a",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.150s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 149.817,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "5713248ebd4389d2e11fc0e9dec6c4c7",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.174s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 174.762,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "bfe559808fb20c5543503d69c8bab726",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.136s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 136.042,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "4df2661a02870d3cb4d36cf88ccb95e0",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.144s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 143.817,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "de117166fa7bf21ce83945ccd07c3de3",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What currencies are supported by the Astronomy Shop?\"}]}]",
+   "output": null,
+   "duration": "0.137s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 136.81199999999998,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "0088d69d2495ec4c26ef14b49214aae7",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.142s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 141.65800000000002,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "c3795e65ffb35dc800a034a630d09efd",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"What current promotions are available on binoculars?\"}]}]",
+   "output": null,
+   "duration": "0.161s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 161.315,
+   "error_spans": 0
+  },
+  "jaeger": null
+ },
+ {
+  "project": "astronomy-shop",
+  "trace_id": "ee69042c017db76728cc86f780d4031e",
+  "mlflow": {
+   "spans": 15,
+   "typed_as": {
+    "(none)": 6,
+    "WORKFLOW": 1,
+    "AGENT": 2,
+    "TASK": 3,
+    "CHAT_MODEL": 2,
+    "TOOL": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": null,
+     "out": null
+    }
+   ],
+   "tokens": null,
+   "cost_usd": null,
+   "session": null,
+   "state": "OK",
+   "error_spans": 0,
+   "input": "[{\"role\": \"user\", \"parts\": [{\"type\": \"text\", \"content\": \"Show all available products in the store.\"}]}]",
+   "output": null,
+   "duration": "0.160s"
+  },
+  "phoenix": {
+   "spans": 15,
+   "typed_as": {
+    "unknown": 9,
+    "llm": 3,
+    "agent": 2,
+    "tool": 1
+   },
+   "llm_spans": [
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "ChatLLM.chat",
+     "model": "azure/gpt-5.5",
+     "in": 0,
+     "out": 0
+    },
+    {
+     "name": "user_ask_agent",
+     "model": null,
+     "in": 0,
+     "out": 0
+    }
+   ],
+   "tokens": {
+    "prompt": 0.0,
+    "completion": 0.0,
+    "total": 0.0
+   },
+   "cost_usd": null,
+   "session": null,
+   "session_traces": null,
+   "root": "user_ask_agent",
+   "root_kind": "llm",
+   "input": null,
+   "output": null,
+   "latency_ms": 159.656,
+   "error_spans": 0
+  },
+  "jaeger": null
+ }
+]
