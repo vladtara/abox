@@ -35,8 +35,13 @@ spec:
     kind: OCIRepository
     name: mlflow
     namespace: flux-system
+  # The 290MB image took 3m43s to pull next to otel-demo's, past the 5m
+  # default wait, and a failed install is not retried by default.
+  timeout: 15m
   install:
     createNamespace: true
+    remediation:
+      retries: 3
   # The chart exposes no probe settings, so both probes run on the Kubernetes
   # default timeoutSeconds: 1. /health shares the event loop with /v1/traces
   # ingestion, and a SQLite write can hold it past 1s, so kubelet restarts a

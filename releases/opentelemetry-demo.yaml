@@ -47,8 +47,13 @@ spec:
         kind: HelmRepository
         name: open-telemetry
         namespace: flux-system
+  # ~25 images on first install; the 5m default ran out mid-pull and left the
+  # release Stalled with nothing actually wrong.
+  timeout: 15m
   install:
     createNamespace: true
+    remediation:
+      retries: 3
   values:
     opensearch:
       enabled: false
