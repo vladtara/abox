@@ -75,6 +75,18 @@ spec:
         resources:
           limits:
             memory: 768Mi
+    # Both OOMKilled at the chart defaults once kagent traffic joined the
+    # shop's: jaeger (600Mi, traces held in memory up to MEMORY_MAX_TRACES)
+    # on a 3h trace search, grafana (300Mi) rendering an Explore query. A
+    # jaeger restart drops every trace it holds.
+    jaeger:
+      resources:
+        limits:
+          memory: 1Gi
+    grafana:
+      resources:
+        limits:
+          memory: 512Mi
     opentelemetry-collector:
       config:
         exporters:

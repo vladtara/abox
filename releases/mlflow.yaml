@@ -86,15 +86,17 @@ spec:
         # its port, and an entry only matches other ports if it has a "*".
         allowed-hosts: "mlflow.mlflow.svc.cluster.local,mlflow.mlflow.svc.cluster.local:*,localhost,localhost:*,127.0.0.1,127.0.0.1:*"
         workers: 2
-    # Measured at ~1.2Gi RSS with one worker (server, uvicorn and three huey
-    # job consumers); each extra worker adds ~250Mi.
+    # Flat ~1.85Gi RSS in this cluster, not growing with traffic: eight Python
+    # processes of 230-250Mi each (server, two uvicorn workers, four huey job
+    # consumers, job runner). At a 2Gi limit one `kubectl exec ... python`
+    # beside them OOMKilled the pod.
     resources:
       requests:
         cpu: 250m
-        memory: 768Mi
+        memory: 2Gi
       limits:
         cpu: "1"
-        memory: 2Gi
+        memory: 3Gi
 ---
 # SQLite hands out experiment IDs in creation order: Default is 0, so kagent
 # gets 1 and astronomy-shop 2 on a fresh volume. Safe to re-run, it only checks
