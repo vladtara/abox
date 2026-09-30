@@ -1,0 +1,116 @@
+# MCP servers run by kagent's kmcp controller. kmcp creates a Service named
+# after the MCPServer and adapts stdio servers to streamable HTTP.
+---
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: neo4j-mcp
+  namespace: kagent
+spec:
+  transportType: stdio
+  stdioTransport: {}
+  deployment:
+    image: neo4j/mcp:v1.6.0
+    cmd: /app/neo4j-mcp
+    env:
+      NEO4J_MCP_URI: bolt://neo4j.neo4j:7687
+      NEO4J_MCP_USERNAME: neo4j
+      # Matches releases/neo4j.yaml.
+      NEO4J_MCP_PASSWORD: abox-neo4j
+      NEO4J_MCP_DATABASE: neo4j
+      NEO4J_MCP_READ_ONLY: "false"
+      NEO4J_MCP_TELEMETRY: "false"
+    resources:
+      requests:
+        cpu: 50m
+        memory: 64Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+---
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: qdrant-mcp
+  namespace: kagent
+spec:
+  transportType: stdio
+  stdioTransport: {}
+  deployment:
+    # Ours; scaffolded with `kmcp init go`, source in mcp/qdrant-mcp. Replaces
+    # mcp-server-qdrant, which could only embed in-process with fastembed and
+    # was OOMKilled doing it.
+    image: ghcr.io/den-vasyliev/abox/qdrant-mcp:0.4.0
+    cmd: /app/server
+    env:
+      # Any OpenAI-compatible /v1/embeddings route. The standalone llama.cpp
+      # Deployment, serving nomic-embed-text-v1.5 as f16 at 8 slots x 2048 ctx.
+      # This is the starting point of the migration exercise; the other route is
+      # llm-d's decode Service:
+      #
+      #   http://llm-d-embedding.llm-d:8000
+      #
+      # hit directly rather than through the EPP, whose scorers are built for
+      # generation traffic, not a pooling runner's single-shot embed. Direct
+      # means no model-based routing, so EMBEDDINGS_MODEL stays unset there too:
+      # llama.cpp ignores it and serves the one GGUF it was given. A managed
+      # endpoint would need EMBEDDINGS_MODEL and EMBEDDINGS_API_KEY -- see
+      # mcp/qdrant-mcp/README.md, "Switching the embeddings backend".
+      #
+      # chat returns 501 against either: both are started with --embeddings and
+      # have no generation head.
+      EMBEDDINGS_BASE_URL: http://llama-cpp-embeddings.llama-cpp:8090
+      # vector_store / vector_find embed through the same endpoint, so the
+      # agent's memory lands in the vector space the gateway serves. The
+      # collection is named for that space. llm-d serves the same model at Q8_0
+      # rather than f16 -- same 768 dims, different kernels -- so the two routes
+      # are two spaces and the vectors do not transfer. Repointing
+      # EMBEDDINGS_BASE_URL is therefore a re-embed, not a copy.
+      QDRANT_URL: http://qdrant.qdrant:6333
+      QDRANT_COLLECTION: abox-nomic
+    resources:
+      requests:
+        cpu: 25m
+        memory: 32Mi
+      limits:
+        cpu: 500m
+        memory: 256Mi
+---
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: qdrant-mcp-official
+  namespace: kagent
+spec:
+  transportType: stdio
+  stdioTransport: {}
+  deployment:
+    # github.com/qdrant/mcp-server-qdrant, run as published. The project ships
+    # no image, so uvx installs the pinned PyPI release into the uv base image
+    # on every pod start. That start pulls the package from PyPI and, on the
+    # first embed, the ONNX model from HuggingFace -- the nodes need egress.
+    image: ghcr.io/astral-sh/uv:0.9.30-python3.12-bookworm-slim
+    cmd: uvx
+    args:
+    - mcp-server-qdrant@0.8.1
+    env:
+      QDRANT_URL: http://qdrant.qdrant:6333
+      # Its own collection: 384-dim MiniLM vectors cannot share abox-nomic's
+      # 768-dim space.
+      COLLECTION_NAME: abox-minilm
+      EMBEDDING_PROVIDER: fastembed
+      # The server's default, spelled out because it is what is being compared.
+      # It reads the first 256 tokens of an entry and drops the rest.
+      EMBEDDING_MODEL: sentence-transformers/all-MiniLM-L6-v2
+      # vector_find returns 5 by default; match it so both toolsets hand the
+      # agent the same number of hits.
+      QDRANT_SEARCH_LIMIT: "5"
+    resources:
+      # fastembed embeds in-process on onnxruntime. qdrant-mcp's 256Mi is what
+      # OOMKilled this server before it was replaced.
+      requests:
+        cpu: 100m
+        memory: 512Mi
+      limits:
+        cpu: "1"
+        memory: 1536Mi

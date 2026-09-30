@@ -9,7 +9,7 @@ module "flux_operator" {
   source  = "controlplaneio-fluxcd/flux-operator-bootstrap/kubernetes"
   version = "0.8.0"
 
-  depends_on = [kind_cluster.this]
+  depends_on = [terraform_data.cluster]
 
   revision = var.bootstrap_revision
 
@@ -41,15 +41,12 @@ resource "kubectl_manifest" "rsip" {
       type: OCIArtifactTag
       url: ${var.oci_registry}/${var.releases_artifact}
       filter:
-        # Pinned to main's own last release. flux-push.yaml fires on any v*
-        # tag and, until it learned to separate branches, pushed every tag
-        # into this one artifact repository -- 0.6.6 through 0.8.9 in
-        # oci://.../releases were all cut from feat/llmd-embeddings, not from
-        # main. An open ^\d+\.\d+\.\d+$ with limit 1 therefore resolves to
-        # 0.8.9 and a cluster bootstrapped from main runs that branch's
-        # bundle. Widen this again once those tags are gone from the registry
-        # and main cuts its next release.
-        includeTag: "^0\\.6\\.5$"
+        # Open again. The ^0\.6\.5$ pin was for den-vasyliev/abox/releases,
+        # where feature-branch tags 0.6.6 to 0.8.9 outranked main's. This
+        # tracks var.oci_registry/var.releases_artifact, a per-branch stream
+        # that only ever holds its own tags, so the newest clean semver tag is
+        # the right one -- and 0.6.5 does not exist in it.
+        includeTag: "^\\d+\\.\\d+\\.\\d+$"
         limit: 1
       defaultValues:
         tag: "${var.releases_version}"

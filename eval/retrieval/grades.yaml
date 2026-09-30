@@ -1,0 +1,60 @@
+# Hand grades for runs A2 (official toolset) and B (default toolset), both on
+# the v1.1.0+ prompt. Each answer was read against the manifest that holds the
+# answer.
+#
+#   2  correct and supported by what was retrieved
+#   1  partly correct: a required fact is missing, nothing false is asserted
+#   0  wrong, or an honest "not found" when the answer is in the corpus
+#   h  asserts something the corpus contradicts (counted as 0)
+#
+# excluded: the agent answers from its own system prompt without retrieving,
+# so the question measures the prompt, not the vector store.
+excluded: [P5, D10]
+official:
+  S1: 2
+  S2: h   # retrieved qdrant-mcp, claimed it embeds with all-MiniLM into abox-nomic
+  S3: 2
+  S4: 1   # found HelmRepository qdrant, did not give its URL, offered to look
+  S5: 2
+  P1: 2
+  P2: 2
+  P3: 2
+  P4: 0   # postRenderer not retrieved; said not found in either store
+  P6: 2   # embeddings bypass the EPP to the decode Service: matches the HTTPRoute
+  W1: 2
+  W2: 2
+  W3: 2
+  D1: 2
+  D2: 1   # gpt-4.1-mini from retrieval-agent's comment; Secret not found
+  D3: 0   # kagent HelmRelease not in any top 5; said no manifest disables them
+  D4: h   # wrong manifests retrieved; gave "llama.cpp is lighter" as the reason
+  D5: 2
+  D6: 2
+  D7: 2
+  D8: 2
+  D9: 2
+  N1: 2   # correctly reported that no manifest deploys Prometheus
+default:
+  S1: 2
+  S2: 2
+  S3: 2
+  S4: 2
+  S5: 2
+  P1: 2
+  P2: 2
+  P3: 2
+  P4: 0   # postRenderer not retrieved; said not found in either store
+  P6: 2   # InferencePool + EPP selecting by model label: matches llm-d-pool
+  W1: 2
+  W2: 2
+  W3: 2
+  D1: 2
+  D2: 1   # gpt-4.1-mini from retrieval-agent's comment; Secret not found
+  D3: 2
+  D4: 2
+  D5: 2
+  D6: 2
+  D7: 2
+  D8: 2
+  D9: 2
+  N1: 2

@@ -34,5 +34,7 @@ terraform.rc
 
 # Claude
 CLAUDE.md
-.docs
 
+
+# kind config rendered by bootstrap/cluster.tf
+.kind-config.yaml

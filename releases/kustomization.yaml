@@ -4,6 +4,11 @@ kind: Kustomization
 resources:
   - agentgateway.yaml
   - agentregistry.yaml
+  - agent-retrieval.yaml
   - kagent.yaml
+  - llama-cpp-embeddings.yaml
+  - llmd.yaml
+  - mcp-servers.yaml
+  - neo4j.yaml
   - phoenix.yaml
   - qdrant.yaml
