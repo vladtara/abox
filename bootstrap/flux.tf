@@ -41,6 +41,11 @@ resource "kubectl_manifest" "rsip" {
       type: OCIArtifactTag
       url: ${var.oci_registry}/${var.releases_artifact}
       filter:
+        # Open again. The ^0\.6\.5$ pin was for den-vasyliev/abox/releases,
+        # where feature-branch tags 0.6.6 to 0.8.9 outranked main's. This
+        # tracks var.oci_registry/var.releases_artifact, a per-branch stream
+        # that only ever holds its own tags, so the newest clean semver tag is
+        # the right one -- and 0.6.5 does not exist in it.
         includeTag: "^\\d+\\.\\d+\\.\\d+$"
         limit: 1
       defaultValues:
