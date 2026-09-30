@@ -55,6 +55,16 @@ spec:
     remediation:
       retries: 3
   values:
+    components:
+      # locustfile.py exports with the OTLP gRPC exporter, but the chart points
+      # it at the collector's HTTP port (docker-compose uses 4317). None of its
+      # spans leave the pod, so user_ask_agent, the root of every agent trace,
+      # is missing: jaeger shows a missing parent, and MLflow, which finishes
+      # a trace only when its root span arrives, keeps them IN_PROGRESS.
+      load-generator:
+        envOverrides:
+          - name: OTEL_EXPORTER_OTLP_ENDPOINT
+            value: http://otel-collector:4317
     opensearch:
       enabled: false
     # The demo collector's kubeletMetrics/clusterMetrics presets scrape every
