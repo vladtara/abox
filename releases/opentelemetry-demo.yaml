@@ -80,9 +80,10 @@ spec:
     # on a 3h trace search, grafana (300Mi) rendering an Explore query. A
     # jaeger restart drops every trace it holds.
     jaeger:
-      resources:
-        limits:
-          memory: 1Gi
+      jaeger:
+        resources:
+          limits:
+            memory: 1Gi
     grafana:
       resources:
         limits:
