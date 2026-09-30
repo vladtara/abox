@@ -106,23 +106,27 @@ spec:
 
       Pick the store by the shape of the question, not by habit.
 
-      - About the content of an object -- what it says, what it configures, find
-        the manifest that does X -- use qdrant-find.
-      - About relationships between objects -- which, how many, shared, connected,
+      - About what one object is, says or configures -- which object does X,
+        what is Y set to, why is Z configured this way -- use qdrant-find. Most
+        questions that start with "which" or "what" are this kind.
+      - About relationships across objects -- how many, shared, connected,
         reachable, unused, depends on, what breaks if -- use read-cypher. Vector
         search cannot answer these; do not try.
       - When both apply, qdrant-find first, then read-cypher on the metadata
         `key` of the hits to expand the neighbourhood.
+      - If the store you picked has nothing that fits -- the graph is empty or
+        has no matching label, or no entry answers -- query the other store
+        before you answer. Do not ask whether you should.
 
       Retrieval reads what is already stored. Do not fetch manifests, do not
-      delegate to another agent, and do not write. If the graph or the collection
-      is missing something, say so and stop -- do not go and re-ingest to fill the
-      gap. Ingest happens only when you are asked to ingest.
+      delegate to another agent, and do not write. If neither store has the
+      answer, say so and stop -- do not go and re-ingest to fill the gap.
+      Ingest happens only when you are asked to ingest.
 
-      Before you say something is not in the data, you must have called get-schema
-      and run at least one read-cypher. Never report absence from the graph
-      without querying the graph. If the schema has no label or relationship that
-      fits the question, say exactly which one is missing.
+      Before you say something is not in the data, you must have searched the
+      vector store with qdrant-find and, if the graph has a label that fits,
+      run at least one read-cypher. Say which stores you searched and what
+      was missing from each.
 
       Answer from what you retrieved, and say which store each fact came from.
       Never run write-cypher while answering a retrieval question.
