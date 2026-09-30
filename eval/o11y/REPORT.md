@@ -49,6 +49,34 @@ CI published each release to `ghcr.io/vladtara/abox/releases-genai-o11y`, and Fl
 | `v1.3.3` | `0c478b3` | memory for MLflow, Grafana after OOMKills |
 | `v1.3.4` | `b556664` | the same for Jaeger, at the path its subchart reads |
 
+## Step by step
+
+1. **Read what exists.**
+   - Upstream's `feat/otel-demo` branch already had MLflow, a bridge collector and the OTel Demo.
+   - Demo 3.1.0 ships an AI agent (LangGraph, Traceloop) that replays VCR cassettes, and a load generator that asks it three prompts.
+   - kagent's controller copies every `OTEL_*` variable into the agent pods it creates.
+   - MLflow ingests OTLP over HTTP only, with an experiment-ID header. Phoenix 15.10+ converts GenAI semconv, and the cluster runs 20.9.
+2. **Tested before deploying.**
+   - Ran MLflow 3.16.1 in Docker: experiment IDs are handed out in order, and the server uses ~1.2 GiB.
+   - Rendered both collector configs and passed them through `otelcol-contrib validate`.
+3. **Wrote the releases:** `opentelemetry-demo.yaml`, `genai-collector.yaml`, `mlflow.yaml` (with the experiments Job) and `otel.tracing` in `kagent.yaml`. Pointed `bootstrap/variables.tf` at `releases-genai-o11y`.
+4. **Gave the collector a Phoenix key.** Created a system API key through Phoenix's GraphQL API and stored it as Secret `phoenix-otlp`. Checked it: OTLP returns 200 with the key, 401 without.
+5. **Shipped `v1.3.0`.**
+   - Pushed the branch, then the tag, and CI published the artifact.
+   - Reviewed `tofu plan` in the Codespace: 0 to add, 2 to change (the artifact URL), 0 to destroy.
+   - Applied that saved plan, and Flux applied `1.3.0`.
+6. **Fixed the first install (`v1.3.1`).** The otel-demo and MLflow installs stalled on Helm's 5-minute wait during image pulls, so they now get 15 minutes and retries.
+7. **Sent kagent traffic and checked each backend's API.** MLflow held the shop's traces as `IN_PROGRESS`, which traced back to the load generator exporting to the wrong port. Fixed in `v1.3.2`.
+8. **Wrote `collect.py` and `collect.sh`** to follow each trace ID through the three APIs and record memory use.
+9. **Ran the incident.** Set `aiSlowResponse` to `5sec` from 19:41:52 to 19:46:54 UTC.
+10. **Forced errors.** Sent more kagent traffic, including two tool calls that fail on purpose.
+11. **Took the screenshots** with Playwright in the Codespace (`screens.py`).
+12. **Raised memory limits after OOMKills (`v1.3.3`, `v1.3.4`).**
+    - MLflow died when my `exec` ran beside it.
+    - Jaeger died on my 3 h search.
+    - Grafana died rendering Explore.
+13. **Wrote this report** and committed `eval/o11y/`.
+
 ## Setup
 
 ```
