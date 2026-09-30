@@ -75,3 +75,42 @@ spec:
       limits:
         cpu: 500m
         memory: 256Mi
+---
+apiVersion: kagent.dev/v1alpha1
+kind: MCPServer
+metadata:
+  name: qdrant-mcp-official
+  namespace: kagent
+spec:
+  transportType: stdio
+  stdioTransport: {}
+  deployment:
+    # github.com/qdrant/mcp-server-qdrant, run as published. The project ships
+    # no image, so uvx installs the pinned PyPI release into the uv base image
+    # on every pod start. That start pulls the package from PyPI and, on the
+    # first embed, the ONNX model from HuggingFace -- the nodes need egress.
+    image: ghcr.io/astral-sh/uv:0.9.30-python3.12-bookworm-slim
+    cmd: uvx
+    args:
+    - mcp-server-qdrant@0.8.1
+    env:
+      QDRANT_URL: http://qdrant.qdrant:6333
+      # Its own collection: 384-dim MiniLM vectors cannot share abox-nomic's
+      # 768-dim space.
+      COLLECTION_NAME: abox-minilm
+      EMBEDDING_PROVIDER: fastembed
+      # The server's default, spelled out because it is what is being compared.
+      # It reads the first 256 tokens of an entry and drops the rest.
+      EMBEDDING_MODEL: sentence-transformers/all-MiniLM-L6-v2
+      # vector_find returns 5 by default; match it so both toolsets hand the
+      # agent the same number of hits.
+      QDRANT_SEARCH_LIMIT: "5"
+    resources:
+      # fastembed embeds in-process on onnxruntime. qdrant-mcp's 256Mi is what
+      # OOMKilled this server before it was replaced.
+      requests:
+        cpu: 100m
+        memory: 512Mi
+      limits:
+        cpu: "1"
+        memory: 1536Mi
