@@ -9,6 +9,19 @@ are the `v*` tags that CI publishes as OCI artifacts.
 
 ### Added
 
+- [ADR-0004](docs/adr/0004-opsman-kernel.md): the opsman kernel (sub-project
+  1), a controller-runtime operator. It proves itself on one loop: detect,
+  diagnose, propose a fix PR, then release after a human merge and verify.
+  - Watches feed detectors written as plain code; only a new finding starts a
+    Run.
+  - A `Run` CRD holds the phase and an append-only journal; artifacts go in
+    ConfigMaps owned by the Run.
+  - The roles (diagnoser, fixer, oracle) are kagent Declarative Agents over
+    A2A. The kernel has no LLM client.
+  - The fix gate enforces scope, deny rules, size, render and a secret scan.
+  - The tag gate tags the merge commit only if nothing newer was released.
+  - RBAC is read-only outside its own namespace. The rollout goes observe,
+    then propose, then full.
 - [ADR-0001](docs/adr/0001-opsman-in-cluster-agent.md): opsman, a Go agent
   that runs only in the cluster and manages it in a loop. It is registered
   as a kagent `BYO` Agent and keeps the stance of
